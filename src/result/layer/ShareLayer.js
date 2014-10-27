@@ -1,7 +1,7 @@
 var ShareLayer = cc.LayerColor.extend({
 
-	ctor:function () {
-		this._super(cc.color(0, 0, 0, 188), cc.winSize.width, cc.winSize.height);
+	ctor:function (type) {
+		this._super(cc.color(0, 0, 0, 200), cc.winSize.width, cc.winSize.height);
 	
 		
 		var arrow = new cc.Sprite(res.img_arrow);
@@ -11,11 +11,20 @@ var ShareLayer = cc.LayerColor.extend({
 		arrow.y = cc.winSize.height - 5;
 		this.addChild(arrow);
 
-		var label = new cc.LabelTTF("请点击右上角的菜单按钮\n再点\"分享到朋友圈\"\n让好友们挑战你的分数！", "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);
-		label.x = cc.winSize.width/2;
-		label.y = cc.winSize.height - 100;
-		label.anchorY = 1;
-		this.addChild(label);
+		if (type == 0) {
+			var label = new cc.LabelTTF(CONFIG.SHARE_STR1, "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);
+			label.x = cc.winSize.width/2;
+			label.y = cc.winSize.height - 100;
+			label.anchorY = 1;
+			this.addChild(label);
+		} else {
+			var img = new cc.Sprite(res.share_1);
+			img.x = cc.winSize.width/2;
+			img.y = cc.winSize.height - 100;
+			img.anchorY = 1;
+			this.addChild(img);
+		}
+		
 
 	},
 	

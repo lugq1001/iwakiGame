@@ -11,10 +11,10 @@
     ],
     "jsList":[
         "src/WeixinApi.js",
+        "src/config/GameConfig.js",
         "src/Tools.js",
         "src/Resource.js",
         "src/GameLoading.js",
-        "src/config/GameConfig.js",
         "src/logic/FlyerType.js",
         "src/logic/FlyerManager.js",
         "src/launch/scene/LaunchScene.js",

@@ -21,6 +21,16 @@ CONFIG.OPENID = "";
 CONFIG.AVATAR = "";
 CONFIG.NICKNAME = "游客";
 CONFIG.MAGICKEY = "GFGJHDQWRQRWYHJKFGJDFSGDFSERWR";
+CONFIG.SHARE_SUCCESS = false;
 
 CONFIG.SERVER_URL = "http://127.0.0.1:8080/";
 CONFIG.SERVER_ACTION_SCORE = "game/score";
+
+CONFIG.WX_DESC_DEFAULT = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
+CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了6等奖。你敢来挑战吗？";
+CONFIG.WX_DESC_SERVICE = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还获得了一次抽奖机会。你敢来挑战吗？";
+
+CONFIG.SHARE_STR1 = "亲爱的朋友，\n点击右上角菜单\n分享至朋友圈即刻获得国王赐予的\n宝藏吧！";
+
+
+CONFIG.WX_SHARD_AWARD = 0;

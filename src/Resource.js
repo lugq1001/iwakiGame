@@ -25,7 +25,9 @@ var res = {
     result_title : "res/imgs/result_title.png",
     result_line : "res/imgs/result_line.jpg",
     result_line : "res/imgs/result_line.jpg",
-    award_6 : "res/imgs/award_6.png"
+    award_6 : "res/imgs/award_6.png",
+    default_avatar : "res/imgs/default_avatar.png",
+    share_1 : "res/imgs/share_1.jpg"
 };
 
 var g_resources = [];
@@ -33,10 +35,3 @@ for (var i in res) {
     g_resources.push(res[i]);
     cc.log(i);
 }
-
-var g_music = [
-	res.m_bomb,
-	res.m_loop,
-	res.m_time,
-	res.m_collide
-	];
