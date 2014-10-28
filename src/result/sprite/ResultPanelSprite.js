@@ -58,7 +58,7 @@ var ResultPanelSprite = cc.Sprite.extend({
 			anchorX: 0.5,
 			anchorY: 1,
 			x: 0,
-			y: 80
+			y: 160
 		});
 		this.addChild(menu, 1, 2);
 		
