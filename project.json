@@ -26,6 +26,7 @@
         "src/result/layer/ResultLayer.js",
         "src/result/sprite/ResultPanelSprite.js",
         "src/result/layer/ShareLayer.js",
+        "src/result/layer/ShenmingLayer.js",
         "src/jquery.min.js",
         "src/jquery.md5.js"
     ]

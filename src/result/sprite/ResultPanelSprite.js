@@ -93,8 +93,12 @@ var ResultPanelSprite = cc.Sprite.extend({
 	},
 	
 	award: function() {
+		var shenmingLayer = new ShenmingLayer();
+		g_resultScene.addChild(shenmingLayer);
+		return;
+		
+
 		if (CONFIG.SHARE_SUCCESS) {
-			alert("share success");
 			CONFIG.SHARE_SUCCESS = false;
 			return;
 		}

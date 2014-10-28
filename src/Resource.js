@@ -12,6 +12,9 @@ var res = {
     btn_again : "res/imgs/btn_again.png",
     btn_share : "res/imgs/btn_share.png",
     btn_award : "res/imgs/btn_award.png",
+    btn_no : "res/imgs/btn_no.png",
+    btn_yes : "res/imgs/btn_yes.png",
+    btn_help : "res/imgs/btn_help.png",
     img_arrow : "res/imgs/arrow.png",
     F0 : "res/imgs/F0.png",
     F1 : "res/imgs/F1.png",
@@ -25,11 +28,14 @@ var res = {
     F9 : "res/imgs/F9.png",
     bg_result : "res/imgs/bg_result.jpg",
     result_title : "res/imgs/result_title.png",
-    result_line : "res/imgs/result_line.jpg",
-    result_line : "res/imgs/result_line.jpg",
+    result_header : "res/imgs/result_header.png",
+    result_line : "res/imgs/result_line.png",
     award_6 : "res/imgs/award_6.png",
     default_avatar : "res/imgs/default_avatar.png",
-    share_1 : "res/imgs/share_1.jpg"
+    share_1 : "res/imgs/share_1.jpg",
+    shenming : "res/imgs/shenming.jpg",
+    award_guest : "res/imgs/award_guest.jpg",
+    award_fans : "res/imgs/award_fans.jpg"
 };
 
 var g_resources = [];
