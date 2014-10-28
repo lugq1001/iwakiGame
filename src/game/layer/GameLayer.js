@@ -59,11 +59,11 @@ var GameLayer = cc.Layer.extend({
 			if (this.collide(flyer, this._kingSprite)) {
 				flyer.stopAllActions();
 				flyer.visible = false;
-				if(flyer._flyerType.type == 6 || flyer._flyerType.type == 7) {
+				if(flyer._flyerType.type == 7 || flyer._flyerType.type == 8) {
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_time);
 					var second = flyer._flyerType.scoreValue;//随机增加时间
 					this.timeUp(second);
-				} else if (flyer._flyerType.type == 5) {// 炸弹
+				} else if (flyer._flyerType.type == 9) {// 炸弹
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_bomb);
 					this.timeUp(-flyer._flyerType.scoreValue);
 					this.onBomb();
