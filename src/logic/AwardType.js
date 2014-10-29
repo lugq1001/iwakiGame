@@ -1,22 +1,22 @@
 var AwardType = [
                  {
-                	 res:res.F0,
+                	 res:res.A0,
                 	 level:1
                  },
                  {
-                	 res:res.F1,
+                	 res:res.A1,
                 	 level:2
                  },
                  {
-                	 res:res.F2,
+                	 res:res.A2,
                 	 level:3
                  },
                  {
-                	 res:res.F3,
+                	 res:res.A3,
                 	 level:4
                  },
                  {
-                	 res:res.F4,
+                	 res:res.A4,
                 	 level:5
                  },
                  ];

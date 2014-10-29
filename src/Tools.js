@@ -64,7 +64,7 @@ function initWX (desc,type) {
 		var wxData = {
 				"appId": "", // 服务号可以填写appId
 				"imgUrl" : 'http://www.iwaki-china.com.cn/images/caipu.png',
-				"link" : 'weixin://profile/gh_0f1001950fad',
+				"link" : 'http://112.65.246.168/',
 				//"desc" : '简直不敢相信，我共接到了' + resultScore + '分宝藏,你敢来挑战吗？',
 				"desc" : desc,
 				"title" : "怡万家-国王的宝藏"
@@ -97,7 +97,7 @@ function initWX (desc,type) {
 				// 整个分享过程结束
 				all : function(resp,shareTo) {
 					// 如果你做的是一个鼓励用户进行分享的产品，在这里是不是可以给用户一些反馈了？
-					alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
+					//alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
 				}    
 		};
 
@@ -126,13 +126,13 @@ function initWX (desc,type) {
 		 */		});
 }
 
-function initWX2(desc,url) {
+function initWX2(desc,helpUrl) {
 	WeixinApi.ready(function(Api) {
 		// 微信分享的数据
 		var wxData = {
 				"appId": "", // 服务号可以填写appId
 				"imgUrl" : 'http://www.iwaki-china.com.cn/images/caipu.png',
-				"link" : url,
+				"link" : helpUrl,
 				//"desc" : '简直不敢相信，我共接到了' + resultScore + '分宝藏,你敢来挑战吗？',
 				"desc" : desc,
 				"title" : "怡万家-国王的宝藏"
@@ -143,7 +143,7 @@ function initWX2(desc,url) {
 				// 分享操作开始之前
 				ready : function() {
 					// 你可以在这里对分享的数据进行重组
-
+					//alert(helpUrl);
 				},
 				// 分享被用户自动取消
 				cancel : function(resp) {
@@ -165,7 +165,7 @@ function initWX2(desc,url) {
 				// 整个分享过程结束
 				all : function(resp,shareTo) {
 					// 如果你做的是一个鼓励用户进行分享的产品，在这里是不是可以给用户一些反馈了？
-					alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
+					//alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
 				}    
 		};
 

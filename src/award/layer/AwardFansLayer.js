@@ -37,7 +37,8 @@ var AwardFansLayer = cc.Layer.extend({
 							alert(jsonData.desc);
 							return;
 						} 
-						this._shareUrl = jsonData.award.helpUrl;
+						self._shareUrl = jsonData.award.helpUrl;
+						cc.log(this._shareUrl);
 						self.showAward(jsonData.award);
 					}
 				};
@@ -59,7 +60,7 @@ var AwardFansLayer = cc.Layer.extend({
 		this._awardSprite = new AwardSprite(this);
 		this._awardSprite.attr({
 			x : winsize.width / 2,
-			y : winsize.height - 180
+			y : winsize.height - 185
 		});
 		this.addChild(this._awardSprite);
 	},
@@ -112,7 +113,7 @@ var AwardFansLayer = cc.Layer.extend({
 	},
 
 	help:function() {
-		//initWX2(CONFIG.WX_DESC_HELP,this._shareUrl);
+		initWX2(CONFIG.WX_DESC_HELP,this._shareUrl);
 		var shareLayer = new ShareLayer(2);
 		g_awardFansScene.addChild(shareLayer);
 	}

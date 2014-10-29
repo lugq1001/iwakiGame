@@ -95,26 +95,9 @@ var ResultPanelSprite = cc.Sprite.extend({
 	},
 	
 	award: function() {
-		// TODO test
-		if (CONFIG.OPENID == "") {
-			cc.director.runScene(new AwardGuestScene());
-		} else {
-			if(this._atl == false) {
-				var shenmingLayer = new ShenmingLayer();
-				g_resultScene.addChild(shenmingLayer);
-			} else {
-				cc.director.runScene(new AwardFansScene());
-			}
-			
-		}
-		
-		
-		return;
-		
-
 		if (CONFIG.SHARE_SUCCESS) {
 			CONFIG.SHARE_SUCCESS = false;
-			// TODO 领奖
+			cc.director.runScene(new AwardFansScene());
 			return;
 		}
 		
