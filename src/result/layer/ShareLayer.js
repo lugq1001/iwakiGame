@@ -17,12 +17,18 @@ var ShareLayer = cc.LayerColor.extend({
 			label.y = cc.winSize.height - 100;
 			label.anchorY = 1;
 			this.addChild(label);
-		} else {
+		} else if(type == 1) {
 			var img = new cc.Sprite(res.share_1);
 			img.x = cc.winSize.width/2;
 			img.y = cc.winSize.height - 100;
 			img.anchorY = 1;
 			this.addChild(img);
+		} else {
+			var label = new cc.LabelTTF(CONFIG.SHARE_STR2, "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);
+			label.x = cc.winSize.width/2;
+			label.y = cc.winSize.height - 100;
+			label.anchorY = 1;
+			this.addChild(label);
 		}
 		
 

@@ -2,6 +2,8 @@ var AwardFansLayer = cc.Layer.extend({
 
 	_awardLabel : null,
 	_start : false,
+	_awardSprite:null,
+	_shareUrl:null,
 	
 	ctor:function () {
 		this._super();
@@ -12,7 +14,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 200
+			y : cc.winSize.height - 175
 		});
 		this.addChild(this._awardLabel);
 		this._awardLabel.runAction(cc.blink(2, 10).repeatForever());
@@ -25,9 +27,8 @@ var AwardFansLayer = cc.Layer.extend({
 					return;
 				}
 				self._start = true;
-				self.initItem();
-				self.itemAnimation();
-				return;
+				self._awardLabel.removeFromParent(true);
+				self.addAward();
 				var callback = function (response) { 
 					cc.log(response);
 					var jsonData = JSON.parse(response);              
@@ -36,50 +37,85 @@ var AwardFansLayer = cc.Layer.extend({
 							alert(jsonData.desc);
 							return;
 						} 
-						self._awardLabel.removeFromParent(true);
-						self.showAward(jsonData.award.desc,jsonData.award.code);
+						this._shareUrl = jsonData.award.helpUrl;
+						self.showAward(jsonData.award);
 					}
 				};
 				var errorcallback = function (response) {         
 					alert(response);  
 				};
 				var params = "openid=" + CONFIG.OPENID;
-
-				// 提交分数
 				request(CONFIG.SERVER_URL + CONFIG.SERVER_ACTION_AWARD, params, true, callback, errorcallback);
 			}
 		}, this._awardLabel);
 	},
 	
-	showAward :function(desc,code) {
-		var tips = new cc.LabelTTF(desc, "微软雅黑", 20, cc.size(300, 80), cc.TEXT_ALIGNMENT_CENTER);
+	showAward :function(award) {
+		this._awardSprite.stopAnim(award);
+	},
+	
+	addAward:function() {
+		var winsize = cc.director.getWinSize();
+		this._awardSprite = new AwardSprite(this);
+		this._awardSprite.attr({
+			x : winsize.width / 2,
+			y : winsize.height - 180
+		});
+		this.addChild(this._awardSprite);
+	},
+	
+	updateUI:function(award) {
+		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 15, cc.size(300, 40), cc.TEXT_ALIGNMENT_CENTER);
 		tips.color = cc.color(255, 255, 255, 1);
 		tips.attr({			
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 100
+			y : cc.winSize.height - 40
 		});
 		this.addChild(tips);
 
-		var code = new cc.LabelTTF(code, "微软雅黑", 22, cc.size(150, 25), cc.TEXT_ALIGNMENT_CENTER);
+		var code = new cc.LabelTTF(award.code, "微软雅黑", 22, cc.size(150, 25), cc.TEXT_ALIGNMENT_CENTER);
 		code.color = cc.color(255, 255, 0, 1);
 		code.attr({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 170
+			y : cc.winSize.height - 260
 		});
 		this.addChild(code);
-	},
-	
-	initItem:function() {
 		
-	},
-	
-	itemAnimation:function() {
+		var helpLabel = new cc.LabelTTF("礼品搬不动?请两好友来帮助！！！", "微软雅黑", 14, cc.size(300, 25), cc.TEXT_ALIGNMENT_CENTER);
+		helpLabel.color = cc.color(255, 255, 0, 1);
+		helpLabel.attr({
+			anchorX: 0.5,
+			anchorY: 0.5,
+			x : cc.winSize.width/2,
+			y : cc.winSize.height - 295
+		});
+		this.addChild(helpLabel);
 		
+		var helpNormal = new cc.Sprite(res.btn_help);
+		var helpSelected = new cc.Sprite(res.btn_help);
+		var helpDisabled = new cc.Sprite(res.btn_help);
+
+		var helpBtn = new cc.MenuItemSprite(helpNormal, helpSelected, helpDisabled, this.help, this);
+		var menu = new cc.Menu(helpBtn);
+		menu.alignItemsHorizontallyWithPadding(0);
+		menu.attr({
+			anchorX: 0.5,
+			anchorY: 0,
+			x : cc.winSize.width/2,
+			y : cc.winSize.height - 325
+		});
+		this.addChild(menu, 1, 2);
 	},
+
+	help:function() {
+		//initWX2(CONFIG.WX_DESC_HELP,this._shareUrl);
+		var shareLayer = new ShareLayer(2);
+		g_awardFansScene.addChild(shareLayer);
+	}
 });
 
 

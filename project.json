@@ -17,6 +17,7 @@
     "src/Resource.js",
     "src/GameLoading.js",
     "src/logic/FlyerType.js",
+    "src/logic/AwardType.js",
     "src/logic/FlyerManager.js",
     "src/launch/scene/LaunchScene.js",
     "src/game/scene/GameScene.js",
