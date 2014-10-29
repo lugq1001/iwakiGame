@@ -13,6 +13,8 @@ var AwardFansScene = cc.Scene.extend({
 			y : cc.winSize.height/2
 		});
 		this.addChild(bg);
-
+		
+		var layer = new AwardFansLayer();
+		this.addChild(layer);
 	}
 });

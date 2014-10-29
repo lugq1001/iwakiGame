@@ -1,7 +1,6 @@
-var AwardFansLayer = cc.Layer.extend({
+var AwardGuestLayer = cc.Layer.extend({
 
 	_awardLabel : null,
-	_start : false,
 	
 	ctor:function () {
 		this._super();
@@ -12,7 +11,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 200
+			y : cc.winSize.height - 180
 		});
 		this.addChild(this._awardLabel);
 		this._awardLabel.runAction(cc.blink(2, 10).repeatForever());
@@ -21,13 +20,11 @@ var AwardFansLayer = cc.Layer.extend({
 			event:cc.EventListener.TOUCH_ONE_BY_ONE,
 			swallowTouches: true,
 			onTouchBegan:function () {
-				if (self._start == true) {
+				var str = "抽奖中...";
+				if (self._awardLabel.getString() == str) {
 					return;
 				}
-				self._start = true;
-				self.initItem();
-				self.itemAnimation();
-				return;
+				self._awardLabel.setString("抽奖中...");
 				var callback = function (response) { 
 					cc.log(response);
 					var jsonData = JSON.parse(response);              
@@ -71,25 +68,5 @@ var AwardFansLayer = cc.Layer.extend({
 			y : cc.winSize.height - 170
 		});
 		this.addChild(code);
-	},
-	
-	initItem:function() {
-		
-	},
-	
-	itemAnimation:function() {
-		
-	},
+	}
 });
-
-
-
-
-
-
-
-
-
-
-
-

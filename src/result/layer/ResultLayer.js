@@ -40,7 +40,7 @@ var ResultLayer = cc.Layer.extend({
 			if(jsonData){ 
 				if (!jsonData.result) {
 					alert(jsonData.desc);
-					//return;
+					return;
 				} 
 				self._networkTips.visible = false;
 				self._myRank = jsonData.myRank;

@@ -96,7 +96,6 @@ var ResultPanelSprite = cc.Sprite.extend({
 	
 	award: function() {
 		// TODO test
-		//CONFIG.OPENID = "111";
 		if (CONFIG.OPENID == "") {
 			cc.director.runScene(new AwardGuestScene());
 		} else {

@@ -14,7 +14,7 @@ var AwardGuestScene = cc.Scene.extend({
 		});
 		this.addChild(bg);
 
-		var layer = new AwardFansLayer();
+		var layer = new AwardGuestLayer();
 		this.addChild(layer);
 	},
 	
