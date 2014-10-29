@@ -27,6 +27,9 @@
         "src/result/sprite/ResultPanelSprite.js",
         "src/result/layer/ShareLayer.js",
         "src/result/layer/ShenmingLayer.js",
+        "src/award/scene/AwardGuestScene.js",
+        "src/award/scene/AwardFansScene.js",
+        "src/award/layer/AwardFansLayer.js",
         "src/jquery.min.js",
         "src/jquery.md5.js"
     ]

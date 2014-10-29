@@ -3,12 +3,14 @@ var resultScore;
 var ResultPanelSprite = cc.Sprite.extend({
 
 	_score : null,
+	_atl: false, // 是否接受过条款
 	
-	ctor : function(score) {
+	ctor : function(score,atl) {
 		this._super();
 		cc.log("<ResultPanelSprite> ctor()");
 		
 		this._score = score;
+		this._atl = atl;
 		resultScore = score;
 		var w = this.width, h = this.height;
 		if (WeixinApi.openInWeixin()) {
@@ -93,13 +95,27 @@ var ResultPanelSprite = cc.Sprite.extend({
 	},
 	
 	award: function() {
-		var shenmingLayer = new ShenmingLayer();
-		g_resultScene.addChild(shenmingLayer);
+		// TODO test
+		//CONFIG.OPENID = "111";
+		if (CONFIG.OPENID == "") {
+			cc.director.runScene(new AwardGuestScene());
+		} else {
+			if(this._atl == false) {
+				var shenmingLayer = new ShenmingLayer();
+				g_resultScene.addChild(shenmingLayer);
+			} else {
+				cc.director.runScene(new AwardFansScene());
+			}
+			
+		}
+		
+		
 		return;
 		
 
 		if (CONFIG.SHARE_SUCCESS) {
 			CONFIG.SHARE_SUCCESS = false;
+			// TODO 领奖
 			return;
 		}
 		

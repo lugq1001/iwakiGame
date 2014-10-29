@@ -30,7 +30,6 @@ var res = {
     result_title : "res/imgs/result_title.png",
     result_header : "res/imgs/result_header.png",
     result_line : "res/imgs/result_line.png",
-    award_6 : "res/imgs/award_6.png",
     default_avatar : "res/imgs/default_avatar.png",
     share_1 : "res/imgs/share_1.jpg",
     shenming : "res/imgs/shenming.jpg",

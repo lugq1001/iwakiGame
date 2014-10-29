@@ -24,7 +24,9 @@ CONFIG.MAGICKEY = "GFGJHDQWRQRWYHJKFGJDFSGDFSERWR";
 CONFIG.SHARE_SUCCESS = false;
 
 CONFIG.SERVER_URL = "http://127.0.0.1:8080/";
+//CONFIG.SERVER_URL = "http://192.168.215.124:8080/";
 CONFIG.SERVER_ACTION_SCORE = "game/score";
+CONFIG.SERVER_ACTION_ACCEPT = "game/accept";
 
 CONFIG.WX_DESC_DEFAULT = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
 CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了6等奖。你敢来挑战吗？";

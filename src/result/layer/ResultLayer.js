@@ -6,6 +6,7 @@ var ResultLayer = cc.Layer.extend({
 	_rankList: null,
 	_myRank :null,
 	_ranks :null,
+	_atl : null,
 	
 	ctor:function (resultScore) {
 		this._super();
@@ -39,14 +40,15 @@ var ResultLayer = cc.Layer.extend({
 			if(jsonData){ 
 				if (!jsonData.result) {
 					alert(jsonData.desc);
-					return;
+					//return;
 				} 
 				self._networkTips.visible = false;
 				self._myRank = jsonData.myRank;
+				self._atl = jsonData.atl;
 				self._ranks = jsonData.ranks;
 				// 排行榜
 				self.initRankList();
-				self._resultPanelSprite = new ResultPanelSprite(gameScore);
+				self._resultPanelSprite = new ResultPanelSprite(gameScore,self._atl);
 				self._resultPanelSprite.attr({
 					anchorX: 0.5,
 					anchorY: 0,
