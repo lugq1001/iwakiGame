@@ -75,12 +75,10 @@ function initWX (desc,type) {
 				// 分享操作开始之前
 				ready : function() {
 					// 你可以在这里对分享的数据进行重组
-					
 				},
 				// 分享被用户自动取消
 				cancel : function(resp) {
 					// 你可以在你的页面上给用户一个小Tip，为什么要取消呢？
-					
 				},
 				// 分享失败了
 				fail : function(resp) {
