@@ -108,10 +108,10 @@ function initWX (desc,type) {
 		Api.shareToTimeline(wxData, wxCallbacks);
 
 		// 点击分享到腾讯微博，会执行下面这个代码
-		Api.shareToWeibo(wxData, wxCallbacks);
+		//Api.shareToWeibo(wxData, wxCallbacks);
 
 		// iOS上，可以直接调用这个API进行分享，一句话搞定
-		Api.generalShare(wxData,wxCallbacks);
+		//Api.generalShare(wxData,wxCallbacks);
 
 		/*			// 有可能用户是直接用微信“扫一扫”打开的，这个情况下，optionMenu、toolbar都是off状态
 		// 为了方便用户测试，我先来trigger show一下
@@ -143,7 +143,7 @@ function initWX2(desc,helpUrl) {
 				// 分享操作开始之前
 				ready : function() {
 					// 你可以在这里对分享的数据进行重组
-					//alert(helpUrl);
+					alert(helpUrl);
 				},
 				// 分享被用户自动取消
 				cancel : function(resp) {
@@ -158,9 +158,7 @@ function initWX2(desc,helpUrl) {
 				// 分享成功
 				confirm : function(resp) {
 					// 分享成功了，我们是不是可以做一些分享统计呢？
-					if(type == CONFIG.WX_SHARD_AWARD) {
-						CONFIG.SHARE_SUCCESS = true;
-					}
+
 				},
 				// 整个分享过程结束
 				all : function(resp,shareTo) {
@@ -176,10 +174,10 @@ function initWX2(desc,helpUrl) {
 		Api.shareToTimeline(wxData, wxCallbacks);
 
 		// 点击分享到腾讯微博，会执行下面这个代码
-		Api.shareToWeibo(wxData, wxCallbacks);
+		//Api.shareToWeibo(wxData, wxCallbacks);
 
 		// iOS上，可以直接调用这个API进行分享，一句话搞定
-		Api.generalShare(wxData,wxCallbacks);
+		//Api.generalShare(wxData,wxCallbacks);
 
 		/*			// 有可能用户是直接用微信“扫一扫”打开的，这个情况下，optionMenu、toolbar都是off状态
 		// 为了方便用户测试，我先来trigger show一下

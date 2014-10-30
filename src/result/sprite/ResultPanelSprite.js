@@ -97,7 +97,11 @@ var ResultPanelSprite = cc.Sprite.extend({
 	award: function() {
 		if (CONFIG.SHARE_SUCCESS) {
 			CONFIG.SHARE_SUCCESS = false;
-			cc.director.runScene(new AwardFansScene());
+			if (CONFIG.OPENID == "") {
+				cc.director.runScene(new AwardGuestScene());
+			} else {
+				cc.director.runScene(new AwardFansScene());
+			}
 			return;
 		}
 		

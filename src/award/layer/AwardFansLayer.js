@@ -37,7 +37,7 @@ var AwardFansLayer = cc.Layer.extend({
 							alert(jsonData.desc);
 							return;
 						} 
-						self._shareUrl = jsonData.award.helpUrl;
+						self._shareUrl = jsonData.helpUrl;
 						cc.log(this._shareUrl);
 						self.showAward(jsonData.award);
 					}
