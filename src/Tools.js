@@ -63,7 +63,7 @@ function initWX (desc,type) {
 		// 微信分享的数据
 		var wxData = {
 				"appId": "", // 服务号可以填写appId
-				"imgUrl" : 'http://www.iwaki-china.com.cn/images/caipu.png',
+				"imgUrl" : 'http://112.65.246.168/images/avatar.png',
 				"link" : 'http://112.65.246.168/',
 				//"desc" : '简直不敢相信，我共接到了' + resultScore + '分宝藏,你敢来挑战吗？',
 				"desc" : desc,
@@ -131,7 +131,7 @@ function initWX2(desc,helpUrl) {
 		// 微信分享的数据
 		var wxData = {
 				"appId": "", // 服务号可以填写appId
-				"imgUrl" : 'http://www.iwaki-china.com.cn/images/caipu.png',
+				"imgUrl" : 'http://112.65.246.168/images/avatar.png',
 				"link" : helpUrl,
 				//"desc" : '简直不敢相信，我共接到了' + resultScore + '分宝藏,你敢来挑战吗？',
 				"desc" : desc,
