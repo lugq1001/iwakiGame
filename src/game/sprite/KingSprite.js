@@ -18,7 +18,7 @@ var KingSprite = cc.Sprite.extend({
 			onTouchEnded:this.onTouchEnded,
 			onTouchCancelled:this.onTouchCancelled
 		}, this);
-		this.runAction(cc.sequence(cc.rotateTo(0.1, -2), cc.rotateTo(0.1,2)).repeatForever()); //左右晃动
+		//this.runAction(cc.sequence(cc.rotateTo(0.1, -2), cc.rotateTo(0.1,2)).repeatForever()); //左右晃动
 		
 	},
 	

@@ -76,8 +76,8 @@ var ResultPanelSprite = cc.Sprite.extend({
 		}
 		if (CONFIG.SOUND_ON) {
 			// 背景音乐
-			cc.audioEngine.setMusicVolume(0.7);
-			cc.audioEngine.playMusic(res.m_loop, true);
+			cc.audioEngine.setMusicVolume(0.5);
+			//cc.audioEngine.playMusic(res.m_loop, true);
 		}
 		cc.director.runScene(new GameScene());
 	},

@@ -35,14 +35,13 @@ var GameLayer = cc.Layer.extend({
 	},
 	
 	update:function (dt) {
-		this._timeLabel.setString("Time: " + this._time);
-		this._scoreLabel.setString("Score: " + this._score);
+		//this._timeLabel.setString("Time: " + this._time);
+		//this._scoreLabel.setString("Score: " + this._score);
 		
 		this.checkCollide();
 		for (var j = 0; j < CONFIG.CONTAINER.SCROLL_LABEL.length; j++) {
 			var label = CONFIG.CONTAINER.SCROLL_LABEL[j];
 			if (label.y > CONFIG.KING_Y + 99 && label.visible) {
-				cc.log("labelY" +  label.y);
 				label.stopAllActions();
 				label.visible = false;
 			}
@@ -59,11 +58,11 @@ var GameLayer = cc.Layer.extend({
 			if (this.collide(flyer, this._kingSprite)) {
 				flyer.stopAllActions();
 				flyer.visible = false;
-				if(flyer._flyerType.type == 7 || flyer._flyerType.type == 8) {
+				if(flyer._flyerType.type == 8 || flyer._flyerType.type == 9) {
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_time);
 					var second = flyer._flyerType.scoreValue;//随机增加时间
 					this.timeUp(second);
-				} else if (flyer._flyerType.type == 9) {// 炸弹
+				} else if (flyer._flyerType.type == 10) {// 炸弹
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_bomb);
 					this.timeUp(-flyer._flyerType.scoreValue);
 					this.onBomb();
@@ -156,7 +155,7 @@ var GameLayer = cc.Layer.extend({
 	// 倒计时
 	timeCount:function() {
 		if (this._time <= 0) {
-			this._timeLabel.setString("Time: " + 0);
+			//this._timeLabel.setString("Time: " + 0);
 			cc.log("<GameLayer> 游戏结束");
 			this.unscheduleAllCallbacks();
 			cc.audioEngine.stopMusic();
@@ -199,20 +198,21 @@ var GameLayer = cc.Layer.extend({
 		offset = cc.p(0, -winsize.height - flyer.height - 200);
 
 		tmpAction = cc.moveBy(flyer._flyerType.speed, offset);
-		if(this._time <= 40) {
+/*		if(this._time <= 40) {
 			tmpAction = cc.moveBy(flyer._flyerType.speed / 1.5, offset);
 		} 
 		if (this._time <= 20) {
 			tmpAction = cc.moveBy(flyer._flyerType.speed / 2, offset);
-		} 
+		} */
 
 		flyer.runAction(tmpAction);
-		var actionBy = cc.RotateBy.create(flyer._flyerType.speed * 3, 360);
-		flyer.runAction(cc.RepeatForever.create(actionBy));
+		//var actionBy = cc.RotateBy.create(flyer._flyerType.speed * 2, 360);
+		//flyer.runAction(cc.RepeatForever.create(actionBy));
 	},
 	
 	// 增加时间
 	timeUp:function(second) {
+		return;
 		this._time += second;
 		var label;
 		if(second > 0) {
@@ -231,6 +231,7 @@ var GameLayer = cc.Layer.extend({
 	
 	// 增加分数
 	scoreUp:function(score) {
+		return;
 		this._score += score;
 		this._score = this._score < 0 ? 0 : this._score;
 		var color = score < 0 ? cc.color(227, 5, 18, 1) : cc.color(227, 5, 18, 1);
@@ -259,7 +260,7 @@ var GameLayer = cc.Layer.extend({
 			selChild = CONFIG.CONTAINER.SCROLL_LABEL[j];
 
 			if (selChild.visible == false) {
-				selChild.setString(score);
+				//selChild.setString(score);
 				selChild.x = this._kingSprite.x;
 				selChild.y = CONFIG.KING_Y;
 				selChild.color = color;
