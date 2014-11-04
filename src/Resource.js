@@ -24,6 +24,8 @@ var res = {
 	F9 : "res/imgs/F9.png",
 	F10 : "res/imgs/F10.png",
 	
+	//result
+	bg : "res/imgs/bg.jpg",
     btn_again : "res/imgs/btn_again.png",
     btn_share : "res/imgs/btn_share.png",
     btn_award : "res/imgs/btn_award.png",
@@ -31,6 +33,10 @@ var res = {
     btn_yes : "res/imgs/btn_yes.png",
     btn_help : "res/imgs/btn_help.png",
     img_arrow : "res/imgs/arrow.png",
+    guest_tips : "res/imgs/guest_tips.png",
+    fans_tips : "res/imgs/fans_tips.png",
+    award_pocket : "res/imgs/award_pocket.png",
+    award_pocket_fans : "res/imgs/award_pocket_fans.png",
     
     A0 : "res/imgs/a_0.png",
     A1 : "res/imgs/a_1.png",
@@ -42,7 +48,7 @@ var res = {
     result_header : "res/imgs/result_header.png",
     result_line : "res/imgs/result_line.png",
     default_avatar : "res/imgs/default_avatar.png",
-    share_1 : "res/imgs/share_1.jpg",
+    share_1 : "res/imgs/share_1.png",
     shenming : "res/imgs/shenming.jpg",
     award_guest : "res/imgs/award_guest.jpg",
     award_fans : "res/imgs/award_fans.jpg"
@@ -70,6 +76,33 @@ res.F8,
 res.F9,
 res.F10
                    ];
+var g_res_result = [
+res.btn_again,
+res.btn_share,
+res.btn_award,
+res.btn_no,
+res.btn_yes,
+res.btn_help,
+res.img_arrow,
+res.A0,
+res.A1,
+res.A2,
+res.A3,
+res.A4,
+res.bg_result,
+res.result_title,
+res.result_header,
+res.result_line,
+res.default_avatar,
+res.share_1,
+res.shenming,
+res.award_guest,
+res.award_fans,
+res.guest_tips,
+res.award_pocket,
+res.award_pocket_fans,
+res.fans_tips
+	];
 
 /*for (var i in res) {
     g_resources.push(res[i]);

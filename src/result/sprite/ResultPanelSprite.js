@@ -58,9 +58,9 @@ var ResultPanelSprite = cc.Sprite.extend({
 		menu.alignItemsVerticallyWithPadding(10);
 		menu.attr({
 			anchorX: 0.5,
-			anchorY: 1,
+			anchorY: 0,
 			x: 0,
-			y: 160
+			y: 90
 		});
 		this.addChild(menu, 1, 2);
 		
@@ -76,7 +76,7 @@ var ResultPanelSprite = cc.Sprite.extend({
 		}
 		if (CONFIG.SOUND_ON) {
 			// 背景音乐
-			cc.audioEngine.setMusicVolume(0.5);
+			//cc.audioEngine.setMusicVolume(0.5);
 			//cc.audioEngine.playMusic(res.m_loop, true);
 		}
 		cc.director.runScene(new GameScene());
@@ -98,9 +98,13 @@ var ResultPanelSprite = cc.Sprite.extend({
 		if (CONFIG.SHARE_SUCCESS) {
 			CONFIG.SHARE_SUCCESS = false;
 			if (CONFIG.OPENID == "") {
-				cc.director.runScene(new AwardGuestScene());
+				g_resultScene.addChild(new ShenmingLayer());
 			} else {
-				cc.director.runScene(new AwardFansScene());
+				if(this._atl) {
+					cc.director.runScene(new AwardFansScene());
+				} else {
+					g_resultScene.addChild(new ShenmingLayer());
+				}
 			}
 			return;
 		}
@@ -115,6 +119,5 @@ var ResultPanelSprite = cc.Sprite.extend({
 		var shareLayer = new ShareLayer(0);
 		g_resultScene.addChild(shareLayer);
 	},
-
 });
 

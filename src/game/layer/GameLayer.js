@@ -155,17 +155,21 @@ var GameLayer = cc.Layer.extend({
 	// 倒计时
 	timeCount:function() {
 		if (this._time <= 0) {
-			//this._timeLabel.setString("Time: " + 0);
+			this._timeLabel.setString("Time: " + 0);
 			cc.log("<GameLayer> 游戏结束");
 			this.unscheduleAllCallbacks();
 			cc.audioEngine.stopMusic();
 			cc.audioEngine.stopAllEffects();
 			var resultScene = new ResultScene();
 			resultScene._resultScore = this._score;
-			cc.director.runScene(resultScene);
+			GameLoading.preload(g_res_result, function () {
+				cc.director.runScene(resultScene);
+			}, this);
 			return;
 		}
 		this._time --;
+		this._timeLabel.setString("Time: " + this._time);
+		//this._scoreLabel.setString("Score: " + this._score);
 	},
 	
 	// 创建凋落物
@@ -212,7 +216,6 @@ var GameLayer = cc.Layer.extend({
 	
 	// 增加时间
 	timeUp:function(second) {
-		return;
 		this._time += second;
 		var label;
 		if(second > 0) {
@@ -226,14 +229,20 @@ var GameLayer = cc.Layer.extend({
 		var actiongFadeTo = cc.fadeTo(1.0, 0);
 		label.runAction(actionTo);
 		label.runAction(actiongFadeTo);
+		this._timeLabel.setString("Time: " + this._time);
+		//this._scoreLabel.setString("Score: " + this._score);
 		//label.runAction(cc.sequence(cc.rotateTo(0.1, -1), cc.rotateTo(0.1,1)).repeatForever()); //左右晃动
 	},
 	
 	// 增加分数
 	scoreUp:function(score) {
-		return;
 		this._score += score;
 		this._score = this._score < 0 ? 0 : this._score;
+		//this._timeLabel.setString("Time: " + this._time);
+		this._scoreLabel.setString("Score: " + this._score);
+		return;
+		
+		
 		var color = score < 0 ? cc.color(227, 5, 18, 1) : cc.color(227, 5, 18, 1);
 		var text = score < 0 ? score : "+" + score;
 		var label = this.getOrCreateLabel(text,color);
@@ -260,7 +269,7 @@ var GameLayer = cc.Layer.extend({
 			selChild = CONFIG.CONTAINER.SCROLL_LABEL[j];
 
 			if (selChild.visible == false) {
-				//selChild.setString(score);
+				selChild.setString(score);
 				selChild.x = this._kingSprite.x;
 				selChild.y = CONFIG.KING_Y;
 				selChild.color = color;

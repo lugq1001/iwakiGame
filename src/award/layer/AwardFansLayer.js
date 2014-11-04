@@ -8,13 +8,22 @@ var AwardFansLayer = cc.Layer.extend({
 	ctor:function () {
 		this._super();
 		var self = this;
+		var pocket = new cc.Sprite(res.award_pocket_fans);
+		pocket.attr({
+			anchorX : 0.5,
+			anchorY : 0.5,
+			x : cc.winSize.width/2,
+			y : cc.winSize.height - 130
+		});
+		this.addChild(pocket);
+		
 		this._awardLabel = new cc.LabelTTF("-点击领奖-", "微软雅黑", 16, cc.size(150, 30), cc.TEXT_ALIGNMENT_CENTER);
 		this._awardLabel.color = cc.color(255, 255, 255, 1);
 		this._awardLabel.attr({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 175
+			y : cc.winSize.height - 155
 		});
 		this.addChild(this._awardLabel);
 		this._awardLabel.runAction(cc.blink(2, 10).repeatForever());
@@ -38,7 +47,6 @@ var AwardFansLayer = cc.Layer.extend({
 							return;
 						} 
 						self._shareUrl = jsonData.helpUrl;
-						cc.log(this._shareUrl);
 						self.showAward(jsonData.award);
 					}
 				};
@@ -60,7 +68,7 @@ var AwardFansLayer = cc.Layer.extend({
 		this._awardSprite = new AwardSprite(this);
 		this._awardSprite.attr({
 			x : winsize.width / 2,
-			y : winsize.height - 185
+			y : winsize.height - 165
 		});
 		this.addChild(this._awardSprite);
 	},
@@ -72,7 +80,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 40
+			y : cc.winSize.height - 30
 		});
 		this.addChild(tips);
 
@@ -82,7 +90,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 260
+			y : cc.winSize.height - 240
 		});
 		this.addChild(code);
 		
@@ -92,7 +100,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 295
+			y : cc.winSize.height - 275
 		});
 		this.addChild(helpLabel);
 		
@@ -107,7 +115,7 @@ var AwardFansLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 325
+			y : cc.winSize.height - 300
 		});
 		this.addChild(menu, 1, 2);
 	},

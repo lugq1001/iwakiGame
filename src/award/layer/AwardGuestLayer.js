@@ -5,6 +5,14 @@ var AwardGuestLayer = cc.Layer.extend({
 	ctor:function () {
 		this._super();
 		var self = this;
+		var pocket = new cc.Sprite(res.award_pocket);
+		pocket.attr({
+			anchorX : 0.5,
+			anchorY : 0.5,
+			x : cc.winSize.width/2,
+			y : cc.winSize.height - 150
+		});
+		this.addChild(pocket);
 		this._awardLabel = new cc.LabelTTF("-点击领奖-", "微软雅黑", 16, cc.size(150, 30), cc.TEXT_ALIGNMENT_CENTER);
 		this._awardLabel.color = cc.color(255, 255, 255, 1);
 		this._awardLabel.attr({

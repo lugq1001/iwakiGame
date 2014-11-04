@@ -61,11 +61,10 @@ cc.game.onStart = function(){
 	var openid = getQueryString("openid");
 	if(openid != null) {
 		CONFIG.OPENID = openid;
+		CONFIG.NICKNAME = "粉丝";
+	} else {
+		CONFIG.NICKNAME = "游客";
 	}
-	var nickname = getQueryString("nickname");
-	if(nickname != null) {
-		CONFIG.NICKNAME = nickname;
-	} 
 	var avatar = getQueryString("avatar");
 	if(avatar != null) {
 		CONFIG.AVATAR = avatar;

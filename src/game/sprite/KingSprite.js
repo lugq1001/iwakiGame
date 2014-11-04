@@ -27,24 +27,24 @@ var KingSprite = cc.Sprite.extend({
 		if (!target.isTouchInRect(touch)) {
 			return false;
 		}
-		cc.log("<KingSprite> onTouchBegan()");
+		//cc.log("<KingSprite> onTouchBegan()");
 		
 		return true;
 	},
 	
 	onTouchMoved: function (touch, event) {
-		cc.log("<KingSprite> onTouchMoved()");
+		//cc.log("<KingSprite> onTouchMoved()");
 		var target = event.getCurrentTarget();
 		target.setPosition(touch.getLocation().x,CONFIG.KING_Y);
 	},
 	
 	onTouchEnded: function (touch, event) {
-		cc.log("<KingSprite> onTouchEnded()");
+		//cc.log("<KingSprite> onTouchEnded()");
 		var target = event.getCurrentTarget();
 	},
 	
 	onTouchCancelled: function (touch, event) {
-		cc.log("<KingSprite> onTouchCancelled()");
+		//cc.log("<KingSprite> onTouchCancelled()");
 		var target = event.getCurrentTarget();
 	},
 	

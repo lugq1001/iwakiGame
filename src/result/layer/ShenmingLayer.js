@@ -28,7 +28,7 @@ var ShenmingLayer = cc.LayerColor.extend({
 			anchorX: 0.5,
 			anchorY: 0,
 			x : cc.winSize.width/2,
-			y : 50
+			y : 40
 		});
 		this.addChild(menu, 1, 2);
 	},
@@ -42,9 +42,14 @@ var ShenmingLayer = cc.LayerColor.extend({
 		};
 		var params = "openid=" + CONFIG.OPENID;
 
-		// 提交分数
+		// 接受条款
 		request(CONFIG.SERVER_URL + CONFIG.SERVER_ACTION_ACCEPT, params, true, callback, errorcallback);
-		cc.director.runScene(new AwardFansScene());
+		if (CONFIG.OPENID == "") {
+			cc.director.runScene(new AwardGuestScene());
+		} else {
+			cc.director.runScene(new AwardFansScene());
+		}
+		
 	},
 	
 	noaccept: function () {

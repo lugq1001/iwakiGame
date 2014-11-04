@@ -7,6 +7,7 @@ var ResultLayer = cc.Layer.extend({
 	_myRank :null,
 	_ranks :null,
 	_atl : null,
+	_title: null,
 	
 	ctor:function (resultScore) {
 		this._super();
@@ -69,34 +70,28 @@ var ResultLayer = cc.Layer.extend({
 	},
 	
 	initTitle:function() {
-		var title = new cc.Sprite(res.result_title);
-		title.attr({
+		this._title = new cc.Sprite(res.result_title);
+		this._title.attr({
 			anchorX : 0.5,
-			anchorY : 0.5,
+			anchorY : 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 50
+			y : cc.winSize.height - 10
 		});
-		this.addChild(title);
+		this.addChild(this._title);
 	},
 
 	initRankList:function() {
 		var winsize = cc.director.getWinSize();
 		var listW = 300;
 		var listH = 250;
-		var listView = new ccui.ListView();
-		// set list view ex direction
-		listView.setDirection(ccui.ScrollView.DIR_VERTICAL);
-		listView.setTouchEnabled(false);
-		listView.setBounceEnabled(false);
-		//listView.setBackGroundImage(res.img_king);
-		//listView.setBackGroundImageScale9Enabled(true);
-		listView.setContentSize(cc.size(listW, listH));
-		listView.x = 20;
-		listView.y = winsize.height - listH - 70;
-		//listView.addEventListener(this.selectedItemEvent, this);
+		var listView = new cc.Layer();
+		listView.attr({
+			anchorX : 0.5,
+			anchorY : 1,
+			x : 20,
+			y : cc.winSize.height - this._title._getHeight()
+		});
 		
-		// set model
-		//listView.setItemModel(rankLabel);
 		var color = cc.color(227, 5, 18);
 		var fontSize = 16;
 		var cellHeight = 40;
@@ -119,7 +114,7 @@ var ResultLayer = cc.Layer.extend({
 			rankLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 0,
+				x: 20,
 				y: positionY
 			});
 			rankLabel.color = color;
@@ -128,7 +123,7 @@ var ResultLayer = cc.Layer.extend({
 			nickLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 120,
+				x: 130,
 				y: positionY
 			});
 			nickLabel.color = color;
@@ -137,7 +132,7 @@ var ResultLayer = cc.Layer.extend({
 			scoreLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 200,
+				x: 180,
 				y: positionY
 			});
 			scoreLabel.color = color;
@@ -153,8 +148,14 @@ var ResultLayer = cc.Layer.extend({
 			line.setScaleY(2/line.getContentSize().height);
 			line.setContentSize(cc.size(280, 2));
 
-			var cell = new ccui.Layout();
-			cell.setContentSize(cc.size(listW, cellHeight));
+			var cell = new cc.Layer();
+			cell.attr({
+				anchorX: 0,
+				anchorY: 0,
+				x: 0,
+				y: -(40 + i * cellHeight)
+			});
+			//cell.setContentSize(cc.size(listW, cellHeight));
 			cell.addChild(rankLabel);
 			cell.addChild(nickLabel);
 			cell.addChild(scoreLabel);
@@ -178,7 +179,7 @@ var ResultLayer = cc.Layer.extend({
 					avatar.attr({
 						anchorX: 0,
 						anchorY: 0,
-						x: 85,
+						x: 95,
 						y: -3
 					});
 					avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -196,7 +197,7 @@ var ResultLayer = cc.Layer.extend({
 						avatar.attr({
 							anchorX: 0,
 							anchorY: 0,
-							x: 85,
+							x: 95,
 							y: -3
 						});
 						avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -211,7 +212,7 @@ var ResultLayer = cc.Layer.extend({
 					avatar.attr({
 						anchorX: 0,
 						anchorY: 0,
-						x: 85,
+						x: 95,
 						y: -3
 					});
 					avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -229,7 +230,7 @@ var ResultLayer = cc.Layer.extend({
 						avatar.attr({
 							anchorX: 0,
 							anchorY: 0,
-							x: 85,
+							x: 95,
 							y: -3
 						});
 						avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -240,7 +241,7 @@ var ResultLayer = cc.Layer.extend({
 				}
 			}
 
-			listView.pushBackCustomItem(cell);
+			listView.addChild(cell);
 	
 		}
 		this._rankList = listView;
