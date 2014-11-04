@@ -15,7 +15,8 @@ function request(url, params, isPost, callback, errorcallback){
 		xhr.open("POST",url);     
 	}else{         
 		xhr.open("GET",url);    
-	}    
+	}   
+
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
 	xhr.onreadystatechange = function () {         
 		if(xhr.readyState == 4 && xhr.status == 200){            
