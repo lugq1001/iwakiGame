@@ -34,6 +34,7 @@
     "src/jquery.md5.js",
     "src/award/layer/AwardGuestLayer.js",
     "src/award/layer/AwardFansLayer.js",
-    "src/award/sprite/AwardSprite.js"
+    "src/award/sprite/AwardSprite.js",
+    "src/result/layer/GuestShenmingLayer.js"
   ]
 }

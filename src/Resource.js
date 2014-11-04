@@ -37,7 +37,8 @@ var res = {
     fans_tips : "res/imgs/fans_tips.png",
     award_pocket : "res/imgs/award_pocket.png",
     award_pocket_fans : "res/imgs/award_pocket_fans.png",
-    
+    btn_shenming : "res/imgs/btn_shenming.png",
+    award_6:"res/imgs/award_6.png",
     A0 : "res/imgs/a_0.png",
     A1 : "res/imgs/a_1.png",
     A2 : "res/imgs/a_2.png",
@@ -102,7 +103,9 @@ res.guest_tips,
 res.award_pocket,
 res.award_pocket_fans,
 res.fans_tips,
-res.bg
+res.bg,
+res.award_6,
+res.btn_shenming
 	];
 
 /*for (var i in res) {

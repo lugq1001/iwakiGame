@@ -61,7 +61,7 @@ cc.game.onStart = function(){
 	var openid = getQueryString("openid");
 	if(openid != null) {
 		CONFIG.OPENID = openid;
-		CONFIG.NICKNAME = "粉丝";
+		CONFIG.NICKNAME = "";
 	} else {
 		CONFIG.NICKNAME = "游客";
 	}

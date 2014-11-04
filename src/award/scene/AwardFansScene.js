@@ -2,8 +2,11 @@ var g_awardFansScene;
 //领奖场景
 var AwardFansScene = cc.Scene.extend({
 
+	_score:0,
+	
 	onEnter:function () {
 		this._super();
+		this._score = resultScore;
 		g_awardFansScene = this;
 		cc.log("<AwardFansScene> onEnter()");
 
@@ -25,7 +28,7 @@ var AwardFansScene = cc.Scene.extend({
 		});
 		this.addChild(tips);
 		
-		var layer = new AwardFansLayer();
+		var layer = new AwardFansLayer(resultScore);
 		this.addChild(layer);
 	}
 });

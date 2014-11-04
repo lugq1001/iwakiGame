@@ -144,7 +144,7 @@ GameLoading = cc.Scene.extend({
 			this._index = 0;
 		}
 		var x = this._positionXs[this._index];
-		this._king1.x = x
+		this._king1.x = x;
 		this._index ++;
 	},
 

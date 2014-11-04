@@ -4,10 +4,13 @@ var AwardFansLayer = cc.Layer.extend({
 	_start : false,
 	_awardSprite:null,
 	_shareUrl:null,
+	_level:null,
+	_score:0,
 	
-	ctor:function () {
+	ctor:function (score) {
 		this._super();
 		var self = this;
+		this._score = score;
 		var pocket = new cc.Sprite(res.award_pocket_fans);
 		pocket.attr({
 			anchorX : 0.5,
@@ -47,6 +50,7 @@ var AwardFansLayer = cc.Layer.extend({
 							return;
 						} 
 						self._shareUrl = jsonData.helpUrl;
+						self._level = jsonData.award.level;
 						self.showAward(jsonData.award);
 					}
 				};
@@ -74,7 +78,7 @@ var AwardFansLayer = cc.Layer.extend({
 	},
 	
 	updateUI:function(award) {
-		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 15, cc.size(300, 40), cc.TEXT_ALIGNMENT_CENTER);
+		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 12, cc.size(300, 40), cc.TEXT_ALIGNMENT_CENTER);
 		tips.color = cc.color(255, 255, 255, 1);
 		tips.attr({			
 			anchorX: 0.5,
@@ -121,7 +125,8 @@ var AwardFansLayer = cc.Layer.extend({
 	},
 
 	help:function() {
-		initWX2(CONFIG.WX_DESC_HELP,this._shareUrl);
+		var desc = CONFIG.WX_DESC_HELP.format(this._score,this._level);
+		initWX2(desc,this._shareUrl);
 		var shareLayer = new ShareLayer(2);
 		g_awardFansScene.addChild(shareLayer);
 	}

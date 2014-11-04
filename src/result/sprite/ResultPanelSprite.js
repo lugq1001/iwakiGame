@@ -95,7 +95,7 @@ var ResultPanelSprite = cc.Sprite.extend({
 	},
 	
 	award: function() {
-		if (CONFIG.SHARE_SUCCESS) {
+		/*if (CONFIG.SHARE_SUCCESS) {
 			CONFIG.SHARE_SUCCESS = false;
 			if (CONFIG.OPENID == "") {
 				g_resultScene.addChild(new ShenmingLayer());
@@ -107,17 +107,23 @@ var ResultPanelSprite = cc.Sprite.extend({
 				}
 			}
 			return;
-		}
-		
+		}*/
 		var desc;
 		if (CONFIG.OPENID == "") {
-			desc = CONFIG.WX_DESC_GUEST.format(this._score)
+			desc = CONFIG.WX_DESC_GUEST.format(this._score);
+			initWX(desc,CONFIG.WX_SHARD_AWARD,function() {
+				cc.director.runScene(new AwardGuestScene());
+			});
+			var shareLayer = new ShareLayer(0);
+			g_resultScene.addChild(shareLayer);
 		} else {
-			desc = CONFIG.WX_DESC_SERVICE.format(this._score)
+			if(this._atl) {
+				cc.director.runScene(new AwardFansScene());
+			} else {
+				g_resultScene.addChild(new ShenmingLayer());
+			}
 		}
-		initWX(desc,CONFIG.WX_SHARD_AWARD);
-		var shareLayer = new ShareLayer(0);
-		g_resultScene.addChild(shareLayer);
+		
 	},
 });
 

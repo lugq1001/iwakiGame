@@ -1,7 +1,9 @@
 var ShareLayer = cc.LayerColor.extend({
 
+	_label2: null,
+	
 	ctor:function (type) {
-		this._super(cc.color(0, 0, 0, 200), cc.winSize.width, cc.winSize.height);
+		this._super(cc.color(0, 0, 0, 230), cc.winSize.width, cc.winSize.height);
 	
 		
 		var arrow = new cc.Sprite(res.img_arrow);
@@ -11,13 +13,41 @@ var ShareLayer = cc.LayerColor.extend({
 		arrow.y = cc.winSize.height - 5;
 		this.addChild(arrow);
 
-		if (type == 0) {
-			var label = new cc.LabelTTF(CONFIG.SHARE_STR1, "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);
+		if (type == 0) {// 低调领奖
+			var label = new cc.LabelTTF(CONFIG.SHARE_STR1, "微软雅黑", 16, cc.size(cc.winSize.width*0.7, 100), cc.TEXT_ALIGNMENT_CENTER);
 			label.x = cc.winSize.width/2;
-			label.y = cc.winSize.height - 100;
+			label.y = cc.winSize.height - 80;
 			label.anchorY = 1;
 			this.addChild(label);
-		} else if(type == 1) {
+			var img = new cc.Sprite(res.award_6);
+			img.anchorY = 1;
+			img.x = cc.winSize.width/2;
+			img.y = cc.winSize.height - 160;
+			this.addChild(img);
+			
+			var shenmingNormal = new cc.Sprite(res.btn_shenming);
+			var shenmingSelected = new cc.Sprite(res.btn_shenming);
+			var shenmingDisabled = new cc.Sprite(res.btn_shenming);
+			var shenming = new cc.MenuItemSprite(shenmingNormal, shenmingSelected, shenmingDisabled, function() {
+				var layer = new GuestShenmingLayer();
+				this.addChild(layer);
+			}, this);
+			var menu = new cc.Menu(shenming);
+			menu.attr({
+				anchorX: 0.5,
+				anchorY: 1,
+				x: cc.winSize.width/2,
+				y: cc.winSize.height - 300
+			});
+			this.addChild(menu);
+			
+			
+			/*var label3 = new cc.LabelTTF(CONFIG.SHENMING, "微软雅黑", 3, cc.size(cc.winSize.width*0.95, 300), cc.TEXT_ALIGNMENT_CENTER);
+			label3.x = cc.winSize.width/2;
+			label3.y = cc.winSize.height - 200;
+			label3.anchorY = 1;
+			this.addChild(label3);*/
+		} else if(type == 1) { // 高调炫耀
 			var img = new cc.Sprite(res.share_1);
 			img.x = cc.winSize.width/2;
 			img.y = cc.winSize.height - 100;

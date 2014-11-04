@@ -59,7 +59,7 @@ String.prototype.format = function(args) {
 	return result;
 }
 
-function initWX (desc,type) {
+function initWX (desc,type,callback) {
 	WeixinApi.ready(function(Api) {
 		// 微信分享的数据
 		var wxData = {
@@ -91,6 +91,7 @@ function initWX (desc,type) {
 					// 分享成功了，我们是不是可以做一些分享统计呢？
 					if(type == CONFIG.WX_SHARD_AWARD) {
 						CONFIG.SHARE_SUCCESS = true;
+						callback();
 					}
 				},
 				// 整个分享过程结束
@@ -142,7 +143,7 @@ function initWX2(desc,helpUrl) {
 				// 分享操作开始之前
 				ready : function() {
 					// 你可以在这里对分享的数据进行重组
-					alert(helpUrl);
+					//alert(helpUrl);
 				},
 				// 分享被用户自动取消
 				cancel : function(resp) {
