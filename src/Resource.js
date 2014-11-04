@@ -101,7 +101,8 @@ res.award_fans,
 res.guest_tips,
 res.award_pocket,
 res.award_pocket_fans,
-res.fans_tips
+res.fans_tips,
+res.bg
 	];
 
 /*for (var i in res) {
