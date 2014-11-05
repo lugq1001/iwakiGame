@@ -1,3 +1,4 @@
+// 游客抽奖
 var AwardGuestLayer = cc.Layer.extend({
 
 	_awardLabel : null,

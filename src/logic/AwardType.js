@@ -1,3 +1,4 @@
+// 奖品
 var AwardType = [
                  {
                 	 res:res.A0,

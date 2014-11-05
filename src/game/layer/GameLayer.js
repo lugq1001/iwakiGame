@@ -1,15 +1,17 @@
+// 碰撞rect
 MAX_CONTAINT_WIDTH = 60;
 MAX_CONTAINT_HEIGHT = 60;
 var g_sharedGameLayer;
 
+// 游戏主界面
 var GameLayer = cc.Layer.extend({
 
-	_scoreLabel : null,
-	_awardScoreLabel : null,
-	_timeLabel : null,
-	_kingSprite : null,
-	_time : CONFIG.GAME_TIME,
-	_score : 0,
+	_scoreLabel : null, // 分数文字
+	_awardScoreLabel : null,  // 吃到道具分数文字
+	_timeLabel : null, // 时间文字
+	_kingSprite : null, // 国王
+	_time : CONFIG.GAME_TIME, // 游戏时间
+	_score : 0, // 分数
 	_flyerManager: null,
 	_gameScene:null,
 	
@@ -28,7 +30,7 @@ var GameLayer = cc.Layer.extend({
 		
 		this._flyerManager = new FlyerManager();
 		this.scheduleUpdate();
-		this.schedule(this.timeCount, 1);
+		this.schedule(this.timeCount, 1); // 游戏倒计时
 		this.schedule(this.scoreFlyer, CONFIG.FLYER_INTERVAL);// 分数道具
 		this.schedule(this.timeFlyer, CONFIG.TIME_INTERVAL);// 时间道具
 		this.schedule(this.bombFlyer, CONFIG.BOMB_INTERVAL);// 炸弹
@@ -38,7 +40,8 @@ var GameLayer = cc.Layer.extend({
 		//this._timeLabel.setString("Time: " + this._time);
 		//this._scoreLabel.setString("Score: " + this._score);
 		
-		this.checkCollide();
+		this.checkCollide(); 
+		// 精灵复用
 		for (var j = 0; j < CONFIG.CONTAINER.SCROLL_LABEL.length; j++) {
 			var label = CONFIG.CONTAINER.SCROLL_LABEL[j];
 			if (label.y > CONFIG.KING_Y + 99 && label.visible) {
@@ -58,7 +61,7 @@ var GameLayer = cc.Layer.extend({
 			if (this.collide(flyer, this._kingSprite)) {
 				flyer.stopAllActions();
 				flyer.visible = false;
-				if(flyer._flyerType.type == 8 || flyer._flyerType.type == 9) {
+				if(flyer._flyerType.type == 8 || flyer._flyerType.type == 9) { // 时钟道具
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_time);
 					var second = flyer._flyerType.scoreValue;//随机增加时间
 					this.timeUp(second);
@@ -66,7 +69,7 @@ var GameLayer = cc.Layer.extend({
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_bomb);
 					this.timeUp(-flyer._flyerType.scoreValue);
 					this.onBomb();
-				} else {
+				} else { // 加分道具
 					if (CONFIG.SOUND_ON)  cc.audioEngine.playEffect(res.m_collide);
 					this.scoreUp(flyer._flyerType.scoreValue);
 				}
@@ -154,7 +157,7 @@ var GameLayer = cc.Layer.extend({
 	
 	// 倒计时
 	timeCount:function() {
-		if (this._time <= 0) {
+		if (this._time <= 0) {// 游戏结束
 			this._timeLabel.setString("Time: " + 0);
 			cc.log("<GameLayer> 游戏结束");
 			this.unscheduleAllCallbacks();
@@ -193,6 +196,7 @@ var GameLayer = cc.Layer.extend({
 		this.addFlyer(bomb);
 	},
 	
+	// 添加加分道具
 	addFlyer:function(flyer) {
 		var winsize = cc.director.getWinSize();
 		flyer.x = 20 + (winsize.width - 40) * Math.random();
@@ -216,6 +220,7 @@ var GameLayer = cc.Layer.extend({
 	
 	// 增加时间
 	timeUp:function(second) {
+		// 浮出文字提示
 		this._time += second;
 		var label;
 		if(second > 0) {
@@ -243,17 +248,18 @@ var GameLayer = cc.Layer.extend({
 		return;
 		
 		
-		var color = score < 0 ? cc.color(227, 5, 18, 1) : cc.color(227, 5, 18, 1);
+		/*var color = score < 0 ? cc.color(227, 5, 18, 1) : cc.color(227, 5, 18, 1);
 		var text = score < 0 ? score : "+" + score;
 		var label = this.getOrCreateLabel(text,color);
 		var to = cc.p(label.x, CONFIG.KING_Y + 100);
 		var actionTo = cc.moveTo(1.0, to);
 		var actiongFadeTo = cc.fadeTo(1.0, 0);
 		label.runAction(actionTo);
-		label.runAction(actiongFadeTo);
+		label.runAction(actiongFadeTo);*/
 		//label.runAction(cc.sequence(cc.rotateTo(0.1, -2), cc.rotateTo(0.1,2)).repeatForever()); //左右晃动
 	},
 	
+	// 爆炸效果
 	onBomb:function() {
 		this._kingSprite.setTexture(res.img_king_black);
 		this._gameScene._bg.setTexture(res.bg_bomb);
@@ -262,6 +268,7 @@ var GameLayer = cc.Layer.extend({
 			this._gameScene._bg.setTexture(res.bg_game);
 		}, 0, false, 1);
 	},
+
 
 	getOrCreateLabel: function(score, color) {
 		var selChild = null;

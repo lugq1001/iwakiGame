@@ -1,4 +1,5 @@
 
+// 抽奖奖品
 var g_sharedAwardFansLayer;
 var AwardSprite = cc.Sprite.extend({
 	

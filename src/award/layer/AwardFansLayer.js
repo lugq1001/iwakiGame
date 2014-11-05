@@ -1,3 +1,4 @@
+// 粉丝抽奖
 var AwardFansLayer = cc.Layer.extend({
 
 	_awardLabel : null,
@@ -63,6 +64,7 @@ var AwardFansLayer = cc.Layer.extend({
 		}, this._awardLabel);
 	},
 	
+	// 奖品展示
 	showAward :function(award) {
 		this._awardSprite.stopAnim(award);
 	},
@@ -77,6 +79,7 @@ var AwardFansLayer = cc.Layer.extend({
 		this.addChild(this._awardSprite);
 	},
 	
+	// 抽奖结束 更新UI
 	updateUI:function(award) {
 		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 12, cc.size(300, 40), cc.TEXT_ALIGNMENT_CENTER);
 		tips.color = cc.color(255, 255, 255, 1);
@@ -124,6 +127,8 @@ var AwardFansLayer = cc.Layer.extend({
 		this.addChild(menu, 1, 2);
 	},
 
+	
+	// 微信帮助分享
 	help:function() {
 		var desc = CONFIG.WX_DESC_HELP.format(this._score,this._level);
 		initWX2(desc,this._shareUrl);

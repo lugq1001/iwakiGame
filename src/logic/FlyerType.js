@@ -1,3 +1,4 @@
+//加分道具
 var FlyerType = [
                  {
                 	 type:0,
