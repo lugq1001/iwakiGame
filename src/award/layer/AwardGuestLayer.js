@@ -27,11 +27,12 @@ var AwardGuestLayer = cc.Layer.extend({
 			cc.log(response);
 			var jsonData = JSON.parse(response);              
 			if(jsonData){ 
+				self._awardLabel.removeFromParent(true);
 				if (!jsonData.result) {
 					alert(jsonData.desc);
+					
 					return;
 				} 
-				self._awardLabel.removeFromParent(true);
 				self.showAward(jsonData.award.desc,jsonData.award.code);
 			}
 		};
