@@ -123,7 +123,6 @@ var ResultPanelSprite = cc.Sprite.extend({
 				g_resultScene.addChild(new ShenmingLayer());
 			}
 		}
-		
 	},
 });
 

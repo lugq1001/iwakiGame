@@ -44,6 +44,12 @@ var AwardGuestLayer = cc.Layer.extend({
 	},
 	
 	showAward :function(desc,code) {
+		var awardSprite = new cc.Sprite(res.A5);
+		awardSprite.attr({
+			x : cc.winSize.width / 2,
+			y : cc.winSize.height - 165
+		});
+		this.addChild(awardSprite);
 		var tips = new cc.LabelTTF(desc, "微软雅黑", 20, cc.size(300, 80), cc.TEXT_ALIGNMENT_CENTER);
 		tips.color = cc.color(255, 255, 255, 1);
 		tips.attr({			
@@ -60,7 +66,7 @@ var AwardGuestLayer = cc.Layer.extend({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 170
+			y : cc.winSize.height - 230
 		});
 		this.addChild(code);
 	}
