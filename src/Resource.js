@@ -57,7 +57,17 @@ var res = {
     default_avatar : "res/imgs/default_avatar.png",
     share_1 : "res/imgs/share_1.png",
     award_guest : "res/imgs/award_guest.jpg",
-    award_fans : "res/imgs/award_fans.jpg"
+    award_fans : "res/imgs/award_fans.jpg",
+    guest_award_tips:"res/imgs/guest_award_tips.png",
+    guest_award_tips_2:"res/imgs/guest_award_tips_2.png",
+    LV1:"res/imgs/LV1.png",
+    LV2:"res/imgs/LV2.png",
+    LV3:"res/imgs/LV3.png",
+    LV4:"res/imgs/LV4.png",
+    LV5:"res/imgs/LV5.png",
+    LV6:"res/imgs/LV6.png",
+    award_package_6:"res/imgs/award_package_6.png"
+   
 };
 
 var g_resources = [];
@@ -103,7 +113,6 @@ res.share_1,
 res.award_guest,
 res.award_fans,
 res.guest_tips,
-res.award_pocket,
 res.award_pocket_fans,
 res.fans_tips,
 //res.bg,
@@ -113,6 +122,15 @@ res.NO,
 res.NO1,
 res.NO2,
 res.NO3,
+res.LV1,
+res.LV2,
+res.LV3,
+res.LV4,
+res.LV5,
+res.LV6,
+res.guest_award_tips,
+res.guest_award_tips_2,
+res.award_package_6
 	];
 
 /*for (var i in res) {
