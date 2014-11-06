@@ -108,8 +108,6 @@ var ResultPanelSprite = cc.Sprite.extend({
 			}
 			return;
 		}*/
-		cc.director.runScene(new AwardGuestScene());
-		return;
 		var desc;
 		if (CONFIG.OPENID == "") {
 			desc = CONFIG.WX_DESC_GUEST.format(this._score);

@@ -15,23 +15,29 @@ var AwardFansLayer = cc.Layer.extend({
 		var pocket = new cc.Sprite(res.award_pocket_fans);
 		pocket.attr({
 			anchorX : 0.5,
-			anchorY : 0.5,
+			anchorY : 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 130
+			y : cc.winSize.height - 40
 		});
+		if (cc.director.getWinSize().width <= CONFIG.SCALE_WIDTH) {
+			pocket.setScaleX(0.5);
+			pocket.setScaleY(0.5);
+		}
 		this.addChild(pocket);
 		
-		this._awardLabel = new cc.LabelTTF("-点击领奖-", "微软雅黑", 16, cc.size(150, 30), cc.TEXT_ALIGNMENT_CENTER);
+		this._awardLabel = new cc.LabelTTF("-点击领奖-", "微软雅黑", 32, cc.size(150, 40), cc.TEXT_ALIGNMENT_CENTER);
 		this._awardLabel.color = cc.color(255, 255, 255, 1);
 		this._awardLabel.attr({
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 155
+			y : cc.winSize.height - 140
 		});
+		this._awardLabel.setScaleX(0.5);
+		this._awardLabel.setScaleY(0.5);
 		this.addChild(this._awardLabel);
 		this._awardLabel.runAction(cc.blink(2, 10).repeatForever());
-
+		
 		cc.eventManager.addListener({
 			event:cc.EventListener.TOUCH_ONE_BY_ONE,
 			swallowTouches: true,
@@ -39,6 +45,7 @@ var AwardFansLayer = cc.Layer.extend({
 				if (self._start == true) {
 					return;
 				}
+				pocket.removeFromParent();
 				self._start = true;
 				self._awardLabel.removeFromParent(true);
 				self.addAward();
@@ -73,42 +80,54 @@ var AwardFansLayer = cc.Layer.extend({
 		var winsize = cc.director.getWinSize();
 		this._awardSprite = new AwardSprite(this);
 		this._awardSprite.attr({
+			anchorX: 0.5,
+			anchorY: 1,
 			x : winsize.width / 2,
-			y : winsize.height - 165
+			y : winsize.height - 40
 		});
+		if (cc.director.getWinSize().width <= CONFIG.SCALE_WIDTH) {
+			this._awardSprite.setScaleX(0.5);
+			this._awardSprite.setScaleY(0.5);
+		}
 		this.addChild(this._awardSprite);
 	},
 	
 	// 抽奖结束 更新UI
 	updateUI:function(award) {
-		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 12, cc.size(300, 40), cc.TEXT_ALIGNMENT_CENTER);
-		tips.color = cc.color(255, 255, 255, 1);
+		var tips = new cc.LabelTTF(award.desc, "微软雅黑", 24, cc.size(600, 80), cc.TEXT_ALIGNMENT_CENTER);
+		tips.color = cc.color(255, 252, 219, 1);
 		tips.attr({			
 			anchorX: 0.5,
-			anchorY: 0.5,
+			anchorY: 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 30
+			y : cc.winSize.height - 10
 		});
+		tips.setScaleX(0.5);
+		tips.setScaleY(0.5);
 		this.addChild(tips);
 
-		var code = new cc.LabelTTF(award.code, "微软雅黑", 22, cc.size(150, 25), cc.TEXT_ALIGNMENT_CENTER);
-		code.color = cc.color(255, 255, 0, 1);
+		var code = new cc.LabelTTF("兑奖码：" + award.code, "微软雅黑", 40, cc.size(600, 50), cc.TEXT_ALIGNMENT_CENTER);
+		code.color = cc.color(255, 252, 219, 1);
 		code.attr({
 			anchorX: 0.5,
-			anchorY: 0.5,
+			anchorY: 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 240
+			y : this._awardSprite.y - this._awardSprite.getContentSize().height / 2 - 5
 		});
+		code.setScaleX(0.5);
+		code.setScaleY(0.5);
 		this.addChild(code);
 		
-		var helpLabel = new cc.LabelTTF("礼品搬不动?请两好友来帮助！！！", "微软雅黑", 14, cc.size(300, 25), cc.TEXT_ALIGNMENT_CENTER);
-		helpLabel.color = cc.color(255, 255, 0, 1);
+		var helpLabel = new cc.LabelTTF("礼品搬不动?请两好友来帮助！！！", "微软雅黑", 28, cc.size(600, 40), cc.TEXT_ALIGNMENT_CENTER);
+		helpLabel.color = cc.color(255, 252, 219, 1);
 		helpLabel.attr({
 			anchorX: 0.5,
-			anchorY: 0.5,
+			anchorY: 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 275
+			y : code.y - code.getContentSize().height / 2
 		});
+		helpLabel.setScaleX(0.5);
+		helpLabel.setScaleY(0.5);
 		this.addChild(helpLabel);
 		
 		var helpNormal = new cc.Sprite(res.btn_help);
@@ -116,15 +135,16 @@ var AwardFansLayer = cc.Layer.extend({
 		var helpDisabled = new cc.Sprite(res.btn_help);
 
 		var helpBtn = new cc.MenuItemSprite(helpNormal, helpSelected, helpDisabled, this.help, this);
-		var menu = new cc.Menu(helpBtn);
-		menu.alignItemsHorizontallyWithPadding(0);
-		menu.attr({
-			anchorX: 0.5,
+		var helpmenu = new cc.Menu(helpBtn);
+		helpmenu.attr({
+			anchorX: 0,
 			anchorY: 0,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 300
+			y : helpLabel.y - helpLabel.getContentSize().height / 2 - 20
 		});
-		this.addChild(menu, 1, 2);
+		helpmenu.setScaleX(0.5);
+		helpmenu.setScaleY(0.5);
+		this.addChild(helpmenu,1,2);
 	},
 
 	

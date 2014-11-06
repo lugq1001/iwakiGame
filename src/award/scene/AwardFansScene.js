@@ -27,9 +27,14 @@ var AwardFansScene = cc.Scene.extend({
 			x : cc.winSize.width/2,
 			y : 10
 		});
+		if (cc.director.getWinSize().width <= CONFIG.SCALE_WIDTH) {
+			tips.setScaleX(0.5);
+			tips.setScaleY(0.5);
+		}
+
 		layer.addChild(tips);
 		
-		var layer = new AwardFansLayer(resultScore);
-		this.addChild(layer);
+		var fansLayer = new AwardFansLayer(resultScore);
+		this.addChild(fansLayer);
 	}
 });

@@ -67,10 +67,12 @@ var ShareLayer = cc.LayerColor.extend({
 			img.setScaleY(0.5);
 			this.addChild(img);
 		} else {
-			var label = new cc.LabelTTF(CONFIG.SHARE_STR2, "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);
+			var label = new cc.LabelTTF(CONFIG.SHARE_STR2, "微软雅黑", 50, cc.size(600, 250), cc.TEXT_ALIGNMENT_CENTER);
 			label.x = cc.winSize.width/2;
 			label.y = cc.winSize.height - 100;
 			label.anchorY = 1;
+			label.setScaleX(0.5);
+			label.setScaleY(0.5);
 			this.addChild(label);
 		}
 		

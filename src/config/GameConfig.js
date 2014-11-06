@@ -6,7 +6,7 @@ CONFIG.KING_Y = 100;
 // 音效开关
 CONFIG.SOUND_ON = true;
 // 游戏时间
-CONFIG.GAME_TIME = 1;
+CONFIG.GAME_TIME = 10;
 // 检查是否在微信浏览器中打开
 CONFIG.CHECK_WECHAT = false;
 
@@ -33,7 +33,7 @@ CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分�
 CONFIG.WX_DESC_SERVICE = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
 CONFIG.WX_DESC_HELP = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了{1}等奖。快来两位朋友帮我把宝藏一起搬回家吧！";
 CONFIG.SHARE_STR1 = "亲爱的朋友，赶快点击右上角菜单按钮，分享至朋友圈即刻获得国王赐予的宝藏吧！";
-CONFIG.SHARE_STR2 = "亲爱的朋友，\n点击右上角菜单\n分享至朋友圈,寻找两位朋友来帮你搬宝藏吧！";
+CONFIG.SHARE_STR2 = "亲爱的朋友，点击右上角菜单,分享至朋友圈,寻找两位朋友来帮你搬宝藏吧！";
 
 
 CONFIG.WX_SHARD_AWARD = 0;

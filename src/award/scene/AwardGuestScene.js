@@ -27,7 +27,7 @@ var AwardGuestScene = cc.Scene.extend({
 			tips.setScaleY(0.5);
 		}
 		
-		this.addChild(tips);
+		layer.addChild(tips);
 
 		var layer = new AwardGuestLayer();
 		this.addChild(layer);
