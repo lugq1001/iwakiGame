@@ -108,7 +108,7 @@ var ResultPanelSprite = cc.Sprite.extend({
 			}
 			return;
 		}*/
-		g_resultScene.addChild(new ShenmingLayer());
+		cc.director.runScene(new AwardGuestScene());
 		return;
 		var desc;
 		if (CONFIG.OPENID == "") {

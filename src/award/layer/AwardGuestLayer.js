@@ -14,14 +14,17 @@ var AwardGuestLayer = cc.Layer.extend({
 			y : cc.winSize.height - 150
 		});
 		this.addChild(pocket);
-		this._awardLabel = new cc.LabelTTF("获取兑奖码,请稍候...", "微软雅黑", 16, cc.size(150, 30), cc.TEXT_ALIGNMENT_CENTER);
+		this._awardLabel = new cc.LabelTTF("获取兑奖码,请稍候...", "微软雅黑", 32, cc.size(300, 60), cc.TEXT_ALIGNMENT_CENTER);
 		this._awardLabel.color = cc.color(255, 255, 255, 1);
 		this._awardLabel.attr({
 			anchorX: 0.5,
-			anchorY: 0.5,
+			anchorY: 1,
 			x : cc.winSize.width/2,
-			y : cc.winSize.height - 60
+			y : cc.winSize.height - 10
 		});
+		this._awardLabel.setScaleX(0.5);
+		this._awardLabel.setScaleY(0.5);
+		
 		this.addChild(this._awardLabel);
 		var callback = function (response) { 
 			cc.log(response);
@@ -52,15 +55,16 @@ var AwardGuestLayer = cc.Layer.extend({
 			y : cc.winSize.height - 165
 		});
 		this.addChild(awardSprite);
-		var tips = new cc.LabelTTF(desc, "微软雅黑", 20, cc.size(300, 80), cc.TEXT_ALIGNMENT_CENTER);
+		/*var tips = new cc.LabelTTF(desc, "微软雅黑", 20, cc.size(300, 80), cc.TEXT_ALIGNMENT_CENTER);
 		tips.color = cc.color(255, 255, 255, 1);
+		
 		tips.attr({			
 			anchorX: 0.5,
 			anchorY: 0.5,
 			x : cc.winSize.width/2,
 			y : cc.winSize.height - 100
 		});
-		this.addChild(tips);
+		this.addChild(tips);*/
 
 		var code = new cc.LabelTTF(code, "微软雅黑", 22, cc.size(150, 25), cc.TEXT_ALIGNMENT_CENTER);
 		code.color = cc.color(255, 255, 0, 1);

@@ -9,15 +9,16 @@ var AwardFansScene = cc.Scene.extend({
 		this._score = resultScore;
 		g_awardFansScene = this;
 		cc.log("<AwardFansScene> onEnter()");
-
-		var bg = new cc.Sprite(res.bg);
+		var layer = new cc.Layer();
+		this.addChild(layer);
+		var bg = new cc.Sprite(app_bg);
 		bg.attr({
 			anchorX : 0.5,
 			anchorY : 0.5,
 			x : cc.winSize.width/2,
 			y : cc.winSize.height/2
 		});
-		this.addChild(bg);
+		layer.addChild(bg);
 		
 		var tips = new cc.Sprite(res.fans_tips);
 		tips.attr({
@@ -26,7 +27,7 @@ var AwardFansScene = cc.Scene.extend({
 			x : cc.winSize.width/2,
 			y : 10
 		});
-		this.addChild(tips);
+		layer.addChild(tips);
 		
 		var layer = new AwardFansLayer(resultScore);
 		this.addChild(layer);
