@@ -108,6 +108,7 @@ var ResultPanelSprite = cc.Sprite.extend({
 			}
 			return;
 		}*/
+		//CONFIG.OPENID = "333333";
 		var desc;
 		if (CONFIG.OPENID == "") {
 			desc = CONFIG.WX_DESC_GUEST.format(this._score);

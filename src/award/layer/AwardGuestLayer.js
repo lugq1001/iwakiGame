@@ -65,7 +65,8 @@ var AwardGuestLayer = cc.Layer.extend({
 					alert(jsonData.desc);
 					return;
 				} 
-				self.showAward(jsonData.award.desc,jsonData.award.code);
+				var code = jsonData.award.code + "";
+				self.showAward(jsonData.award.desc,code);
 			}
 		};
 		var errorcallback = function (response) {         
@@ -106,8 +107,7 @@ var AwardGuestLayer = cc.Layer.extend({
 		}
 		this.addChild(level);
 		
-		var code = new cc.LabelTTF(code, "微软雅黑", 64, cc.size(300, 70), cc.TEXT_ALIGNMENT_CENTER);
-		code.set
+		var code = new cc.LabelTTF(code, "微软雅黑", 64, cc.size(600, 70), cc.TEXT_ALIGNMENT_CENTER);
 		code.color = cc.color(255, 255, 255, 1);
 		code.attr({
 			anchorX: 0.5,
