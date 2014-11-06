@@ -6,9 +6,9 @@ CONFIG.KING_Y = 100;
 // 音效开关
 CONFIG.SOUND_ON = true;
 // 游戏时间
-CONFIG.GAME_TIME = 30;
+CONFIG.GAME_TIME = 1;
 // 检查是否在微信浏览器中打开
-CONFIG.CHECK_WECHAT = true;
+CONFIG.CHECK_WECHAT = false;
 
 // 掉落奖品间隔 秒
 CONFIG.FLYER_INTERVAL = 0.3;
@@ -30,8 +30,9 @@ CONFIG.NICKNAME = "游客";
 CONFIG.SHARE_SUCCESS = false;
 CONFIG.WX_DESC_DEFAULT = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
 CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了6等奖。你敢来挑战吗？";
+CONFIG.WX_DESC_SERVICE = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
 CONFIG.WX_DESC_HELP = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了{1}等奖。快来两位朋友帮我把宝藏一起搬回家吧！";
-CONFIG.SHARE_STR1 = "亲爱的朋友，点击右上角菜单分享至朋友圈即刻获得国王赐予的宝藏吧！";
+CONFIG.SHARE_STR1 = "亲爱的朋友，赶快点击右上角菜单按钮，分享至朋友圈即刻获得国王赐予的宝藏吧！";
 CONFIG.SHARE_STR2 = "亲爱的朋友，\n点击右上角菜单\n分享至朋友圈,寻找两位朋友来帮你搬宝藏吧！";
 
 
@@ -40,8 +41,9 @@ CONFIG.WX_SHARD_AWARD = 0;
 // 服务端密钥
 CONFIG.MAGICKEY = "GFGJHDQWRQRWYHJKFGJDFSGDFSERWR";
 // 服务端密钥、、地址
-CONFIG.SERVER_URL = "http://112.65.246.168/";
+//CONFIG.SERVER_URL = "http://112.65.246.168/";
 //CONFIG.SERVER_URL = "http://127.0.0.1:8080/";
+CONFIG.SERVER_URL = "http://192.168.1.95:8080/";
 //服务端action
 CONFIG.SERVER_ACTION_SCORE = "game/score";
 CONFIG.SERVER_ACTION_ACCEPT = "game/accept";

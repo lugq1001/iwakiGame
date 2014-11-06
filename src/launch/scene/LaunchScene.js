@@ -4,22 +4,31 @@
 var LaunchScene = cc.Scene.extend({
 	
 	_startLabel : null,
+	_startLayer : null,
 	
 	onEnter:function () {
 		this._super();
+		var self = this;
 		cc.log("<LaunchScene> onEnter()");
 		//cc.audioEngine.stopMusic();
 		//cc.audioEngine.stopAllEffects();
 		
-		// 加载背景
-		var bg = new cc.Sprite(res.bg_launch);
+		var winsize = cc.director.getWinSize();
+		self._startLayer = new cc.Layer();
+		self.addChild(self._startLayer);
+		
+		var bg = new cc.Sprite(app_bg);
 		var winsize = cc.director.getWinSize();
 		var centerpos = cc.p(winsize.width / 2, winsize.height / 2);
 		bg.setPosition(centerpos);
-		this.addChild(bg);
-		cc.log("<LaunchScene> 背景资源加载成功");
-		
+		self._startLayer.addChild(bg);
 
+		var avatar = new cc.Sprite(res.bg_launch);
+		var winsize = cc.director.getWinSize();
+		avatar.setPosition(centerpos);
+		avatar.setScaleX(0.5);
+		avatar.setScaleY(0.5);
+		self._startLayer.addChild(avatar);
 		
 		var startNormal = new cc.Sprite(res.btn_start);
 		var startSelected = new cc.Sprite(res.btn_start);

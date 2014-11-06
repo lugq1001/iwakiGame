@@ -5,7 +5,7 @@ var res = {
 	//m_loop : "res/music/loop.mp3",
 	
 	//启动
-	bg_launch : "res/imgs/bg_loading_s.jpg",
+	bg_launch : "res/imgs/bg_loading_s.png",
 	btn_start : "res/imgs/btn_start.png",
 	// 游戏
 	bg_game : "res/imgs/bg_game_s.jpg",
@@ -23,6 +23,7 @@ var res = {
 	F8 : "res/imgs/F8.png",
 	F9 : "res/imgs/F9.png",
 	F10 : "res/imgs/F10.png",
+	
 	
 	//result
 	bg : "res/imgs/bg.jpg",
@@ -45,13 +46,16 @@ var res = {
     A3 : "res/imgs/a_3.png",
     A4 : "res/imgs/a_4.png",
     A5 : "res/imgs/a_5.png",
+    NO1 : "res/imgs/NO1.png",
+    NO2 : "res/imgs/NO2.png",
+    NO3 : "res/imgs/NO3.png",
+    NO : "res/imgs/NO.png",
     bg_result : "res/imgs/bg_result.jpg",
     result_title : "res/imgs/result_title.png",
     result_header : "res/imgs/result_header.png",
     result_line : "res/imgs/result_line.png",
     default_avatar : "res/imgs/default_avatar.png",
     share_1 : "res/imgs/share_1.png",
-    shenming : "res/imgs/shenming.jpg",
     award_guest : "res/imgs/award_guest.jpg",
     award_fans : "res/imgs/award_fans.jpg"
 };
@@ -61,8 +65,6 @@ var g_resources = [];
 var g_res_game = [
 res.bg_launch,
 res.btn_start,
-res.bg_game,
-res.bg_game,
 res.bg_bomb,
 res.img_king,
 res.img_king_black,
@@ -98,16 +100,19 @@ res.result_header,
 res.result_line,
 res.default_avatar,
 res.share_1,
-res.shenming,
 res.award_guest,
 res.award_fans,
 res.guest_tips,
 res.award_pocket,
 res.award_pocket_fans,
 res.fans_tips,
-res.bg,
+//res.bg,
 res.award_6,
-res.btn_shenming
+res.btn_shenming,
+res.NO,
+res.NO1,
+res.NO2,
+res.NO3,
 	];
 
 /*for (var i in res) {

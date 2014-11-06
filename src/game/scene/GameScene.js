@@ -6,6 +6,8 @@ var GameScene = cc.Scene.extend({
 		this._super();
 		cc.log("<GameScene> onEnter()");
 		
+		var layer = new cc.Layer();
+		this.addChild(layer);
 		this._bg = new cc.Sprite(res.bg_game);
 		this._bg.attr({
 			anchorX : 0.5,
@@ -13,12 +15,10 @@ var GameScene = cc.Scene.extend({
 			x : cc.winSize.width/2,
 			y : cc.winSize.height/2
 		});
-		this.addChild(this._bg);
-		cc.log("<GameScene> 添加背景资源成功");
-
+		layer.addChild(this._bg);
+		
 		var gameLayer = new GameLayer(this);
 		this.addChild(gameLayer);
-		
 		
 	}
 

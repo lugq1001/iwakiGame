@@ -5,12 +5,14 @@ var ShareLayer = cc.LayerColor.extend({
 	ctor:function (type) {
 		this._super(cc.color(0, 0, 0, 230), cc.winSize.width, cc.winSize.height);
 	
-		
+		var winsize = cc.director.getWinSize();
 		var arrow = new cc.Sprite(res.img_arrow);
 		arrow.anchorX = 1;
 		arrow.anchorY = 1;
 		arrow.x = cc.winSize.width - 15;
 		arrow.y = cc.winSize.height - 5;
+		arrow.setScaleX(0.5);
+		arrow.setScaleY(0.5);
 		this.addChild(arrow);
 
 		if (type == 0) {// 低调领奖
@@ -32,15 +34,23 @@ var ShareLayer = cc.LayerColor.extend({
 				var layer = new GuestShenmingLayer();
 				this.addChild(layer);
 			}, this);
+			
+			
+			
 			var menu = new cc.Menu(shenming);
 			menu.attr({
 				anchorX: 0.5,
 				anchorY: 1,
 				x: cc.winSize.width/2,
-				y: cc.winSize.height - 300
+				y: 30
 			});
 			this.addChild(menu);
 			
+			var label2 = new cc.LabelTTF("分享后即可领取", "微软雅黑", 16, cc.size(cc.winSize.width*0.7, 100), cc.TEXT_ALIGNMENT_CENTER);
+			label2.x = cc.winSize.width/2;
+			label2.y = cc.winSize.height - 300;
+			label2.anchorY = 1;
+			this.addChild(label2);
 			
 			/*var label3 = new cc.LabelTTF(CONFIG.SHENMING, "微软雅黑", 3, cc.size(cc.winSize.width*0.95, 300), cc.TEXT_ALIGNMENT_CENTER);
 			label3.x = cc.winSize.width/2;
@@ -52,6 +62,9 @@ var ShareLayer = cc.LayerColor.extend({
 			img.x = cc.winSize.width/2;
 			img.y = cc.winSize.height - 100;
 			img.anchorY = 1;
+			var per = winsize.width/img.getContentSize().width;
+			img.setScaleX(0.5);
+			img.setScaleY(0.5);
 			this.addChild(img);
 		} else {
 			var label = new cc.LabelTTF(CONFIG.SHARE_STR2, "微软雅黑", 25, cc.size(cc.winSize.width*0.7, 250), cc.TEXT_ALIGNMENT_CENTER);

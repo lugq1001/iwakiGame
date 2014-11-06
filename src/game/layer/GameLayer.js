@@ -24,6 +24,7 @@ var GameLayer = cc.Layer.extend({
 	init:function() {
 		cc.log("<GameLayer> init()");
 		g_sharedGameLayer = this;
+		
 		this.initScoreInfo();
 		this.initTimeInfo();
 		this.initKing();
@@ -261,12 +262,12 @@ var GameLayer = cc.Layer.extend({
 	
 	// 爆炸效果
 	onBomb:function() {
-		this._kingSprite.setTexture(res.img_king_black);
+		/*this._kingSprite.setTexture(res.img_king_black);
 		this._gameScene._bg.setTexture(res.bg_bomb);
 		this.schedule(function () {
 			this._kingSprite.setTexture(res.img_king);
 			this._gameScene._bg.setTexture(res.bg_game);
-		}, 0, false, 1);
+		}, 0, false, 1);*/
 	},
 
 

@@ -70,6 +70,7 @@ var ResultLayer = cc.Layer.extend({
 	},
 	
 	initTitle:function() {
+		var winsize = cc.director.getWinSize();
 		this._title = new cc.Sprite(res.result_title);
 		this._title.attr({
 			anchorX : 0.5,
@@ -77,6 +78,8 @@ var ResultLayer = cc.Layer.extend({
 			x : cc.winSize.width/2,
 			y : cc.winSize.height - 10
 		});
+		this._title.setScaleX(0.5);
+		this._title.setScaleY(0.5);
 		this.addChild(this._title);
 	},
 
@@ -89,27 +92,33 @@ var ResultLayer = cc.Layer.extend({
 			anchorX : 0.5,
 			anchorY : 1,
 			x : 20,
-			y : cc.winSize.height - this._title._getHeight()
+			y : cc.winSize.height - this._title._getHeight() / 2
 		});
 		
 		var color = cc.color(227, 5, 18);
-		var fontSize = 16;
+		var fontSize = 32;
 		var cellHeight = 40;
-		var labelHeight = 20;
+		var labelHeight = 40;
 		var avatarSize = 30;
 		var positionY = 0;
+		var imgs = new Array(res.NO1,res.NO2,res.NO3); 
+		
 		for (var i = 0; i < this._ranks.length + 1; i++) {
 			var rankLabel;
+			var numLabel = null;
 			var nickLabel;
 			var scoreLabel;
 			if (i == this._ranks.length) {
-				rankLabel = new cc.LabelTTF("No:" + this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				//rankLabel = new cc.LabelTTF("No:" + this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				numLabel = new cc.LabelTTF((i + 1), "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				numLabel.color = color;
+				rankLabel = new cc.Sprite(res.NO);
 				nickLabel = new cc.LabelTTF("您", "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
-				scoreLabel = new cc.LabelTTF(this._resultScore+ "分", "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
+				scoreLabel = new cc.LabelTTF(this._resultScore+ "分", "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
 			} else {
-				rankLabel = new cc.LabelTTF("No:" + (i + 1), "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				rankLabel = new cc.Sprite(imgs[i]);
 				nickLabel = new cc.LabelTTF(this._ranks[i].nickname, "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
-				scoreLabel = new cc.LabelTTF(this._ranks[i].score + "分", "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
+				scoreLabel = new cc.LabelTTF(this._ranks[i].score + "分", "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
 			}
 			rankLabel.attr({
 				anchorX: 0,
@@ -117,36 +126,51 @@ var ResultLayer = cc.Layer.extend({
 				x: 20,
 				y: positionY
 			});
-			rankLabel.color = color;
-
+			rankLabel.setScaleX(0.5);
+			rankLabel.setScaleY(0.5);
+			
+			if (numLabel != null) {
+				numLabel.attr({
+					anchorX: 0,
+					anchorY: 0,
+					x: 50,
+					y: positionY
+				});
+				numLabel.setScaleX(0.5);
+				numLabel.setScaleY(0.5);
+			}
+			
 			
 			nickLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
 				x: 130,
-				y: positionY
+				y: 0
 			});
 			nickLabel.color = color;
-
+			nickLabel.setScaleX(0.5);
+			nickLabel.setScaleY(0.5);
 			
 			scoreLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 180,
+				x: 170,
 				y: positionY
 			});
 			scoreLabel.color = color;
+			scoreLabel.setScaleX(0.5);
+			scoreLabel.setScaleY(0.5);
 			
 			var line = new cc.Sprite(res.result_line);
 			line.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 0,
+				x: 20,
 				y: positionY - 8
 			});
-			line.setScaleX(280/line.getContentSize().width);
+			line.setScaleX(230/line.getContentSize().width);
 			line.setScaleY(2/line.getContentSize().height);
-			line.setContentSize(cc.size(280, 2));
+			line.setContentSize(cc.size(230, 2));
 
 			var cell = new cc.Layer();
 			cell.attr({
@@ -159,10 +183,12 @@ var ResultLayer = cc.Layer.extend({
 			cell.addChild(rankLabel);
 			cell.addChild(nickLabel);
 			cell.addChild(scoreLabel);
-			
+			if (numLabel != null) {
+				cell.addChild(numLabel);
+			}
 			cell.addChild(line);
 			
-			if (i == 0) {
+			if (i == 0) {// 皇冠
 				var header = new cc.Sprite(res.result_header);
 				header.attr({
 					anchorX: 0,
@@ -170,6 +196,8 @@ var ResultLayer = cc.Layer.extend({
 					x: 32,
 					y: positionY +15
 				});
+				header.setScaleX(0.5);
+				header.setScaleY(0.5);
 				cell.addChild(header);
 			}
 			

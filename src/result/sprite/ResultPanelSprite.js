@@ -57,15 +57,15 @@ var ResultPanelSprite = cc.Sprite.extend({
 		var menu = new cc.Menu(again, share, award);
 		menu.alignItemsVerticallyWithPadding(10);
 		menu.attr({
-			anchorX: 0.5,
+			anchorX: 0,
 			anchorY: 0,
 			x: 0,
 			y: 90
 		});
+		menu.setScaleX(0.5);
+		menu.setScaleY(0.5);
 		this.addChild(menu, 1, 2);
-		
-		
-		
+			
 	},
 	
 	playAgain: function() {
@@ -108,6 +108,8 @@ var ResultPanelSprite = cc.Sprite.extend({
 			}
 			return;
 		}*/
+		g_resultScene.addChild(new ShenmingLayer());
+		return;
 		var desc;
 		if (CONFIG.OPENID == "") {
 			desc = CONFIG.WX_DESC_GUEST.format(this._score);
