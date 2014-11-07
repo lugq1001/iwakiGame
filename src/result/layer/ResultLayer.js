@@ -110,7 +110,7 @@ var ResultLayer = cc.Layer.extend({
 			var scoreLabel;
 			if (i == this._ranks.length) {
 				//rankLabel = new cc.LabelTTF("No:" + this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
-				numLabel = new cc.LabelTTF((i + 1), "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				numLabel = new cc.LabelTTF(this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
 				numLabel.color = color;
 				rankLabel = new cc.Sprite(res.NO);
 				nickLabel = new cc.LabelTTF("您", "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
