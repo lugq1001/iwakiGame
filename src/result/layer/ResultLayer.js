@@ -108,16 +108,18 @@ var ResultLayer = cc.Layer.extend({
 			var numLabel = null;
 			var nickLabel;
 			var scoreLabel;
+			var avatarX = 75;
+			var nickX = 110;
 			if (i == this._ranks.length) {
 				//rankLabel = new cc.LabelTTF("No:" + this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
 				numLabel = new cc.LabelTTF(this._myRank, "微软雅黑", fontSize,cc.size(100, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
 				numLabel.color = color;
 				rankLabel = new cc.Sprite(res.NO);
-				nickLabel = new cc.LabelTTF("您", "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				nickLabel = new cc.LabelTTF("您", "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
 				scoreLabel = new cc.LabelTTF(this._resultScore+ "分", "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
 			} else {
 				rankLabel = new cc.Sprite(imgs[i]);
-				nickLabel = new cc.LabelTTF(this._ranks[i].nickname, "微软雅黑", fontSize,cc.size(80, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
+				nickLabel = new cc.LabelTTF(this._ranks[i].nickname, "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_LEFT);
 				scoreLabel = new cc.LabelTTF(this._ranks[i].score + "分", "微软雅黑", fontSize,cc.size(160, labelHeight), cc.TEXT_ALIGNMENT_RIGHT);
 			}
 			rankLabel.attr({
@@ -144,7 +146,7 @@ var ResultLayer = cc.Layer.extend({
 			nickLabel.attr({
 				anchorX: 0,
 				anchorY: 0,
-				x: 130,
+				x: nickX,
 				y: 0
 			});
 			nickLabel.color = color;
@@ -207,7 +209,7 @@ var ResultLayer = cc.Layer.extend({
 					avatar.attr({
 						anchorX: 0,
 						anchorY: 0,
-						x: 95,
+						x: avatarX,
 						y: -3
 					});
 					avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -225,7 +227,7 @@ var ResultLayer = cc.Layer.extend({
 						avatar.attr({
 							anchorX: 0,
 							anchorY: 0,
-							x: 95,
+							x: avatarX,
 							y: -3
 						});
 						avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -240,7 +242,7 @@ var ResultLayer = cc.Layer.extend({
 					avatar.attr({
 						anchorX: 0,
 						anchorY: 0,
-						x: 95,
+						x: avatarX,
 						y: -3
 					});
 					avatar.setScaleX(avatarSize/avatar.getContentSize().width);
@@ -258,7 +260,7 @@ var ResultLayer = cc.Layer.extend({
 						avatar.attr({
 							anchorX: 0,
 							anchorY: 0,
-							x: 95,
+							x: avatarX,
 							y: -3
 						});
 						avatar.setScaleX(avatarSize/avatar.getContentSize().width);
