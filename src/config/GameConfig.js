@@ -6,9 +6,9 @@ CONFIG.KING_Y = 100;
 // 音效开关
 CONFIG.SOUND_ON = true;
 // 游戏时间
-CONFIG.GAME_TIME = 10;
+CONFIG.GAME_TIME = 30;
 // 检查是否在微信浏览器中打开
-CONFIG.CHECK_WECHAT = false;
+CONFIG.CHECK_WECHAT = true;
 
 // 掉落奖品间隔 秒
 CONFIG.FLYER_INTERVAL = 0.3;
