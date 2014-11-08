@@ -60,6 +60,8 @@ var AwardFansLayer = cc.Layer.extend({
 						self._shareUrl = jsonData.helpUrl;
 						self._level = jsonData.award.level;
 						self.showAward(jsonData.award);
+						var desc = CONFIG.WX_DESC_HELP.format(self._score,self._level);
+						initWX2(desc,self._shareUrl);
 					}
 				};
 				var errorcallback = function (response) {         

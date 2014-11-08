@@ -8,7 +8,7 @@ CONFIG.SOUND_ON = true;
 // 游戏时间
 CONFIG.GAME_TIME = 30;
 // 检查是否在微信浏览器中打开
-CONFIG.CHECK_WECHAT = false;
+CONFIG.CHECK_WECHAT = true;
 
 // 掉落奖品间隔 秒
 CONFIG.FLYER_INTERVAL = 0.3;
@@ -29,7 +29,7 @@ CONFIG.AVATAR = "";
 CONFIG.NICKNAME = "游客";
 CONFIG.SHARE_SUCCESS = false;
 CONFIG.WX_DESC_DEFAULT = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
-CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了6等奖。你敢来挑战吗？";
+CONFIG.WX_DESC_GUEST = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏。你敢来挑战吗？";
 CONFIG.WX_DESC_SERVICE = "简直不敢相信，我共接到了{0}分宝藏,你敢来挑战吗？";
 CONFIG.WX_DESC_HELP = "wow~赚翻了。我在国王这里一共挖到了{0}分的宝藏，还拿到了{1}等奖。快来两位朋友帮我把宝藏一起搬回家吧！";
 CONFIG.SHARE_STR1 = "亲爱的朋友，赶快点击右上角菜单按钮，分享至朋友圈即刻获得国王赐予的宝藏吧！";
