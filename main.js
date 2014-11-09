@@ -92,6 +92,7 @@ cc.game.onStart = function(){
     // cc.LoaderScene.preload会生成一个“加载中 x％”的界面，等待资源加载结束后，调用第二个参数传入的匿名函数。 
     // 对于基于html的游戏，页面是放在服务器端供浏览器下载的，为了获得流畅的用户体验，cc.LoaderScene.preload让浏览器先把远程服务器的资源缓存到本地。
     // 需要预加载的资源定义在src/Resources.js文件中。
+    //cc.Texture2D.defaultPixelFormat = cc.Texture2D.PIXEL_FORMAT_RGB565;
     GameLoading.preload(g_res_game, function () {
     	cc.director.runScene(new LaunchScene());
     }, this);

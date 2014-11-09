@@ -5,6 +5,7 @@ var FlyerSprite = cc.Sprite.extend({
 	_flyerType : null,
 	ctor:function (flyerType) {
 		this._super(flyerType.textureName);
+		//this.getTexture().defaultPixelFormat = cc.Texture2D.PIXEL_FORMAT_RGB5A1;
 		this._flyerType = flyerType;
 	},
 	

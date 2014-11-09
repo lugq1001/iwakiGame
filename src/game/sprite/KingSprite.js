@@ -1,11 +1,14 @@
 
 var g_sharedKingSprite;
+
+// 国王
 var KingSprite = cc.Sprite.extend({
 	
 	_rect : null,
 	
 	ctor : function() {
 		this._super(res.img_king);
+		//this.getTexture().defaultPixelFormat = cc.Texture2D.PIXEL_FORMAT_RGB5A1;
 		cc.log("<KingSprite> ctor()");
 		this._rect = cc.rect(0,0,this.getContentSize().width,this.getContentSize().height);
 		g_sharedKingSprite = this;
@@ -35,17 +38,18 @@ var KingSprite = cc.Sprite.extend({
 	onTouchMoved: function (touch, event) {
 		//cc.log("<KingSprite> onTouchMoved()");
 		var target = event.getCurrentTarget();
-		target.setPosition(touch.getLocation().x,CONFIG.KING_Y);
+		var x = touch.getLocation().x;
+		target.x = x;	
 	},
 	
 	onTouchEnded: function (touch, event) {
 		//cc.log("<KingSprite> onTouchEnded()");
-		var target = event.getCurrentTarget();
+		//var target = event.getCurrentTarget();
 	},
 	
 	onTouchCancelled: function (touch, event) {
 		//cc.log("<KingSprite> onTouchCancelled()");
-		var target = event.getCurrentTarget();
+		//var target = event.getCurrentTarget();
 	},
 	
 	// 是否点击到国王

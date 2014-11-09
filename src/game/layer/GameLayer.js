@@ -38,18 +38,7 @@ var GameLayer = cc.Layer.extend({
 	},
 	
 	update:function (dt) {
-		//this._timeLabel.setString("Time: " + this._time);
-		//this._scoreLabel.setString("Score: " + this._score);
-		
 		this.checkCollide(); 
-		// 精灵复用
-		for (var j = 0; j < CONFIG.CONTAINER.SCROLL_LABEL.length; j++) {
-			var label = CONFIG.CONTAINER.SCROLL_LABEL[j];
-			if (label.y > CONFIG.KING_Y + 99 && label.visible) {
-				label.stopAllActions();
-				label.visible = false;
-			}
-		}
 	},
 	
 	// ***********************************碰撞检测*******************************************
@@ -236,8 +225,6 @@ var GameLayer = cc.Layer.extend({
 		label.runAction(actionTo);
 		label.runAction(actiongFadeTo);
 		this._timeLabel.setString("Time: " + this._time);
-		//this._scoreLabel.setString("Score: " + this._score);
-		//label.runAction(cc.sequence(cc.rotateTo(0.1, -1), cc.rotateTo(0.1,1)).repeatForever()); //左右晃动
 	},
 	
 	// 增加分数
@@ -246,18 +233,6 @@ var GameLayer = cc.Layer.extend({
 		this._score = this._score < 0 ? 0 : this._score;
 		//this._timeLabel.setString("Time: " + this._time);
 		this._scoreLabel.setString("Score: " + this._score);
-		return;
-		
-		
-		/*var color = score < 0 ? cc.color(227, 5, 18, 1) : cc.color(227, 5, 18, 1);
-		var text = score < 0 ? score : "+" + score;
-		var label = this.getOrCreateLabel(text,color);
-		var to = cc.p(label.x, CONFIG.KING_Y + 100);
-		var actionTo = cc.moveTo(1.0, to);
-		var actiongFadeTo = cc.fadeTo(1.0, 0);
-		label.runAction(actionTo);
-		label.runAction(actiongFadeTo);*/
-		//label.runAction(cc.sequence(cc.rotateTo(0.1, -2), cc.rotateTo(0.1,2)).repeatForever()); //左右晃动
 	},
 	
 	// 爆炸效果
