@@ -38,3 +38,10 @@ var AwardFansScene = cc.Scene.extend({
 		this.addChild(fansLayer);
 	}
 });
+
+
+
+
+
+
+
