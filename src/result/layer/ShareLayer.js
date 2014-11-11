@@ -21,11 +21,11 @@ var ShareLayer = cc.LayerColor.extend({
 			label.y = cc.winSize.height - 80;
 			label.anchorY = 1;
 			this.addChild(label);
-			var img = new cc.Sprite(res.award_6);
-			img.anchorY = 1;
-			img.x = cc.winSize.width/2;
-			img.y = cc.winSize.height - 160;
-			this.addChild(img);
+//			var img = new cc.Sprite(res.award_6);
+//			img.anchorY = 1;
+//			img.x = cc.winSize.width/2;
+//			img.y = cc.winSize.height - 160;
+//			this.addChild(img);
 			
 			var shenmingNormal = new cc.Sprite(res.btn_shenming);
 			var shenmingSelected = new cc.Sprite(res.btn_shenming);

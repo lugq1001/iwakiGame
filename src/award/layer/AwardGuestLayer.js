@@ -66,7 +66,7 @@ var AwardGuestLayer = cc.Layer.extend({
 					return;
 				} 
 				var code = jsonData.award.code + "";
-				self.showAward(jsonData.award.desc,code);
+				self.showAward(jsonData.award.desc,code,jsonData.award);
 			}
 		};
 		var errorcallback = function (response) {         
@@ -78,7 +78,7 @@ var AwardGuestLayer = cc.Layer.extend({
 		request(CONFIG.SERVER_URL + CONFIG.SERVER_ACTION_AWARD, params, true, callback, errorcallback);
 	},
 	
-	showAward :function(desc,code) {
+	showAward :function(desc,code,award) {
 		var tips = new cc.Sprite(res.guest_award_tips);
 		tips.attr({			
 			anchorX: 0.5,
@@ -92,9 +92,9 @@ var AwardGuestLayer = cc.Layer.extend({
 		}
 		this.addChild(tips);
 		
-		//var imgs = new Array(res.LV1,res.LV2,res.LV3,res.LV4,res.LV5,res.LV6); 
-
-		var level = new cc.Sprite(res.LV6);
+		var imgs = new Array(res.LV1,res.LV2,res.LV3,res.LV4,res.LV5,res.LV6); 
+		var	lv = parseInt(award.level);
+		var level = new cc.Sprite(imgs[lv - 1]);
 		level.attr({			
 			anchorX: 0.5,
 			anchorY: 1,
