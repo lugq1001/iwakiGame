@@ -44,7 +44,7 @@ var AwardGuestLayer = cc.Layer.extend({
 		}
 		this.addChild(tips2);
 		
-		this._awardLabel = new cc.LabelTTF("获取兑奖码,请稍候...", "微软雅黑", 32, cc.size(300, 60), cc.TEXT_ALIGNMENT_CENTER);
+		/*this._awardLabel = new cc.LabelTTF("获取兑奖码,请稍候...", "微软雅黑", 32, cc.size(300, 60), cc.TEXT_ALIGNMENT_CENTER);
 		this._awardLabel.color = cc.color(255, 255, 255, 1);
 		this._awardLabel.attr({
 			anchorX: 0.5,
@@ -54,9 +54,15 @@ var AwardGuestLayer = cc.Layer.extend({
 		});
 		this._awardLabel.setScaleX(0.5);
 		this._awardLabel.setScaleY(0.5);
+		this.addChild(this._awardLabel);*/
+		if (!guestResult) {
+			alert(guestDesc);
+			return;
+		} 
+		var code = guestAward.code + "";
+		self.showAward(guestAward.desc,code,guestAward);
 		
-		this.addChild(this._awardLabel);
-		var callback = function (response) { 
+/*		var callback = function (response) { 
 			cc.log(response);
 			var jsonData = JSON.parse(response);              
 			if(jsonData){ 
@@ -74,8 +80,7 @@ var AwardGuestLayer = cc.Layer.extend({
 		};
 		var params = "openid=" + CONFIG.OPENID;
 
-		// 提交分数
-		request(CONFIG.SERVER_URL + CONFIG.SERVER_ACTION_AWARD, params, true, callback, errorcallback);
+		request(CONFIG.SERVER_URL + CONFIG.SERVER_ACTION_AWARD, params, true, callback, errorcallback);*/
 	},
 	
 	showAward :function(desc,code,award) {

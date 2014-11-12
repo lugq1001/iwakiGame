@@ -1,3 +1,7 @@
+var guestAward;
+var guestResult;
+var guestDesc;
+
 var ResultLayer = cc.Layer.extend({
 	
 	_resultPanelSprite : null,
@@ -49,6 +53,12 @@ var ResultLayer = cc.Layer.extend({
 				self._ranks = jsonData.ranks;
 				// 排行榜
 				self.initRankList();
+				if(CONFIG.OPENID == "") {
+					guestAward = jsonData.award;
+					guestResult = jsonData.awardResult;
+					guestDesc = jsonData.awardDesc;
+				}
+				
 				self._resultPanelSprite = new ResultPanelSprite(gameScore,self._atl);
 				self._resultPanelSprite.attr({
 					anchorX: 0.5,

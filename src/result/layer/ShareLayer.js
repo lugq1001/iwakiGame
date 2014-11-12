@@ -45,8 +45,8 @@ var ShareLayer = cc.LayerColor.extend({
 				y: 30
 			});
 			this.addChild(menu);
-			
-			var label2 = new cc.LabelTTF("分享后即可领取", "微软雅黑", 16, cc.size(cc.winSize.width*0.7, 100), cc.TEXT_ALIGNMENT_CENTER);
+			var guestAwardLevel = guestResult ? guestAward.level : 6;
+			var label2 = new cc.LabelTTF("分享后即可领取" + guestAwardLevel + "等奖", "微软雅黑", 16, cc.size(cc.winSize.width*0.9, 100), cc.TEXT_ALIGNMENT_CENTER);
 			label2.x = cc.winSize.width/2;
 			label2.y = cc.winSize.height - 300;
 			label2.anchorY = 1;

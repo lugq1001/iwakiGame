@@ -73,6 +73,9 @@ var res = {
 var g_resources = [];
 
 var g_res_game = [
+res.m_bomb,
+res.m_collide,
+res.m_time,
 res.bg_launch,
 res.bg_game,
 res.btn_start,
